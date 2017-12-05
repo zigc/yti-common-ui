@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2017-12-05 16:27+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.5\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Yes"
+msgstr "Kyllä"
+
+msgid "Cancel"
+msgstr "Peruuta"
+
+msgid "Close"
+msgstr "Sulje"
+
+msgid ""
+"This service is developed and maintained by Population Registry Center of "
+"Finland"
+msgstr "Verkkopalvelun kehittämisestä vastaa Väestörekisterikeskus"
+
+msgid "Information about the web service"
+msgstr "Tietoa verkkopalvelusta"
+
+msgid "Description of file"
+msgstr "Tietosuojaseloste"
+
+msgid "User support"
+msgstr "Käytön tuki"
+
+msgid "Feedback"
+msgstr "Ota yhteyttä"
+
+msgid "Sourcecode is licensed under EUPL-1.2 license."
+msgstr "Lähdekoodi on lisenssoitu EUPL-1.2 -lisenssillä."
+
+msgid "Login"
+msgstr "Sisäänkirjautuminen"
+
+msgid "eDuuni information"
+msgstr ""
+"Palveluun kirjaudutaan eDuuni-tunnuksilla. Kirjautumista vaaditaan jos "
+"haluat muokata palvelun sisältöä."
+
+msgid "Login information"
+msgstr ""
+"Alla olevalla painikkeella ohjaudut eDuuni-palvelun kirjautumiseen. Palaa "
+"sen jälkeen takaisin palveluun."
+
+msgid "Log In"
+msgstr "Kirjaudu sisään"
+
+msgid "Register"
+msgstr "Luo tunnukset"
+
+msgid "MENU"
+msgstr "VALIKKO"
