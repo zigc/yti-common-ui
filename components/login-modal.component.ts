@@ -1,7 +1,6 @@
-import { Component, Injectable } from '@angular/core';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
-declare const window: Window;
+import {Component, Injectable} from '@angular/core';
+import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {UserService} from '../services/user.service';
 
 @Injectable()
 export class LoginModalService {
@@ -40,7 +39,8 @@ export class LoginModalService {
 })
 export class LoginModalComponent {
 
-  constructor(private modal: NgbActiveModal) {
+  constructor(private modal: NgbActiveModal,
+              private userService: UserService) {
   }
 
   cancel() {
@@ -48,11 +48,10 @@ export class LoginModalComponent {
   }
 
   login() {
-    const currentUrl = window.location.href;
-    window.location.href = `/Shibboleth.sso/Login?target=${encodeURIComponent(currentUrl)}`;
+    this.userService.login();
   }
 
   register() {
-    window.open('http://id.eduuni.fi/signup', '_blank');
+    this.userService.register();
   }
 }

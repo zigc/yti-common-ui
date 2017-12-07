@@ -1,9 +1,9 @@
 import {Inject, Injectable} from '@angular/core';
-import { Http } from '@angular/http';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { combineResultSets, convertToMapSet, hasAny } from '../utils/set';
+import {Http} from '@angular/http';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {combineResultSets, convertToMapSet, hasAny } from '../utils/set';
 import {AUTHENTICATED_USER_ENDPOINT} from '../index';
-import { Observable } from 'rxjs/Observable';
+import {Observable} from 'rxjs/Observable';
 
 export type Role = 'ADMIN'
                  | 'DATA_MODEL_EDITOR'
@@ -11,6 +11,8 @@ export type Role = 'ADMIN'
                  | 'CODE_LIST_EDITOR';
 
 export type UUID = string;
+
+declare const window: Window;
 
 export class User {
 
@@ -85,6 +87,15 @@ export class UserService {
 
   isLoggedIn() {
     return !this.user.anonymous;
+  }
+
+  register() {
+    window.open('http://id.eduuni.fi/signup', '_blank');
+  }
+
+  login() {
+    const currentUrl = window.location.href;
+    window.location.href = `/Shibboleth.sso/Login?target=${encodeURIComponent(currentUrl)}`;
   }
 
   logout() {
