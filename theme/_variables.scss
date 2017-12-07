@@ -6,7 +6,7 @@ $white:         #fff !default;
 $gray-100:      #FAFAFA !default;
 $gray-200:      #eee !default;
 $gray-300:      #dee2e6 !default;
-$gray-400:      #ccc !default;
+$gray-400:      #C9CDCF !default;
 $gray-500:      #A5ACB0 !default;
 $gray-600:      #84898C !default;
 $gray-700:      #495057 !default;
@@ -100,7 +100,13 @@ $font-size-base:              0.9375rem !default;
 $headings-font-weight:        200 !default;
 $headings-margin-bottom:      20px;
 
-// Forms
+// Tables
+
+$table-cell-padding:          15px;
+$table-border-color:          $gray-400;
+$table-accent-bg:             $gray-100;
+
+  // Forms
 
 $input-border-color:          $gray !default;
 

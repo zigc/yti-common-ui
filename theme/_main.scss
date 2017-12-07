@@ -334,6 +334,12 @@ table {
 
 .table {
 
+  border: 1px solid $gray-400;
+
+  td {
+    vertical-align: middle;
+  }
+
   &-success,
   &-info,
   &-warning,
