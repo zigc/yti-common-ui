@@ -22,6 +22,14 @@
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/@angular/http/-/http-4.1.1.tgz#1e052d02e52aee7b48d1de626abbf067e850a242"
 
+"@angular/platform-browser-dynamic@4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-4.1.1.tgz#682881035140e22d498abca139907aa8187f6bfa"
+
+"@angular/platform-browser@4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-4.1.1.tgz#e2f545b458e7858cc0b20b0ae4cc99237560fb72"
+
 "@biesbjerg/ngx-translate-extract@2.3.2":
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/@biesbjerg/ngx-translate-extract/-/ngx-translate-extract-2.3.2.tgz#bb9381da129e6e0cd2793c4db674d315c8a4e1ef"
@@ -899,3 +907,7 @@ yargs@8.0.2:
     which-module "^2.0.0"
     y18n "^3.2.1"
     yargs-parser "^7.0.0"
+
+zone.js@0.8.4:
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.4.tgz#cc40ae5a1c879601c5ebba2096b5c80f0c4c3602"
