@@ -9,7 +9,7 @@ export class LoginModalService {
   }
 
   open() {
-    this.modalService.open(LoginModalComponent, { size: 'sm' }).result;
+    this.modalService.open(LoginModalComponent, { size: 'sm' });
   }
 }
 
