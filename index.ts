@@ -17,6 +17,7 @@ import {DropdownComponent} from './components/dropdown.component';
 import {FilterDropdownComponent} from './components/filter-dropdown.component';
 import {AUTHENTICATED_USER_ENDPOINT} from './services/user.service';
 import {TranslateValuePipe, LOCALIZER} from './pipes/translate-value.pipe';
+import {PopoverCloseComponent} from "./components/popover-close.component";
 
 declare var require: any;
 
@@ -36,7 +37,8 @@ const components = [
   MenuComponent,
   DropdownComponent,
   FilterDropdownComponent,
-  TranslateValuePipe
+  TranslateValuePipe,
+  PopoverCloseComponent
 ];
 
 @NgModule({
