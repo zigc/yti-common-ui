@@ -15,9 +15,12 @@ import {LoginModalComponent, LoginModalService} from './components/login-modal.c
 import {MenuComponent} from './components/menu.component';
 import {DropdownComponent} from './components/dropdown.component';
 import {FilterDropdownComponent} from './components/filter-dropdown.component';
-import {AUTHENTICATED_USER_ENDPOINT} from './services/user.service';
+import {UserService, AUTHENTICATED_USER_ENDPOINT} from './services/user.service';
 import {TranslateValuePipe, LOCALIZER} from './pipes/translate-value.pipe';
-import {PopoverCloseComponent} from "./components/popover-close.component";
+import {PopoverCloseComponent} from './components/popover-close.component';
+import {HighlightPipe} from './pipes/highlight.pipe';
+import {AccordionChevronComponent} from './components/accordion-chevron.component';
+import {KeysPipe} from './pipes/keys.pipe';
 
 declare var require: any;
 
@@ -26,19 +29,22 @@ export { LOCALIZER }
 export const ietfLanguageTags: string[] = require('./assets/ietf-language-tags.json');
 
 const components = [
-  BreadcrumbComponent,
-  FooterComponent,
-  BackButtonComponent,
+  AccordionChevronComponent,
   AjaxLoadingIndicatorComponent,
   AjaxLoadingIndicatorSmallComponent,
-  ErrorModalComponent,
+  BackButtonComponent,
+  BreadcrumbComponent,
   ConfirmationModalComponent,
+  DropdownComponent,
+  ErrorModalComponent,
+  FilterDropdownComponent,
+  FooterComponent,
+  HighlightPipe,
+  KeysPipe,
   LoginModalComponent,
   MenuComponent,
-  DropdownComponent,
-  FilterDropdownComponent,
-  TranslateValuePipe,
-  PopoverCloseComponent
+  PopoverCloseComponent,
+  TranslateValuePipe
 ];
 
 @NgModule({
@@ -62,6 +68,7 @@ const components = [
     LoginModalService,
     ConfirmationModalService,
     ConfirmationModalService,
+    UserService
   ]
 })
 export class YtiCommonModule {
