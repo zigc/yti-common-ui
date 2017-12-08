@@ -1,9 +1,10 @@
-import {Inject, Injectable} from '@angular/core';
+import {Inject, Injectable, InjectionToken} from '@angular/core';
 import {Http} from '@angular/http';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {combineResultSets, convertToMapSet, hasAny } from '../utils/set';
-import {AUTHENTICATED_USER_ENDPOINT} from '../index';
 import {Observable} from 'rxjs/Observable';
+
+export const AUTHENTICATED_USER_ENDPOINT = new InjectionToken<string>('authenticated.user.endpoint');
 
 export type Role = 'ADMIN'
                  | 'DATA_MODEL_EDITOR'

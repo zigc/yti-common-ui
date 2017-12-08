@@ -30,6 +30,10 @@
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-4.1.1.tgz#e2f545b458e7858cc0b20b0ae4cc99237560fb72"
 
+"@angular/router@4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@angular/router/-/router-4.1.1.tgz#0a7ce03065197982786782cf5429fa6f0c0300fa"
+
 "@biesbjerg/ngx-translate-extract@2.3.2":
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/@biesbjerg/ngx-translate-extract/-/ngx-translate-extract-2.3.2.tgz#bb9381da129e6e0cd2793c4db674d315c8a4e1ef"
