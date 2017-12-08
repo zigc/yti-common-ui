@@ -1,3 +1,4 @@
+import {Observable} from 'rxjs/Observable';
 
 export type Language = string;
 
@@ -10,5 +11,6 @@ export interface Localizable { [language: string]: string; }
 export interface LocalizableArray { [language: string]: string[]; }
 
 export interface Localizer {
-  translate(localizable: Localizable): string;
+  translateLanguage$: Observable<Language>;
+  translate(localizable: Localizable, useUILanguage?: boolean): string;
 }
