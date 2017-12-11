@@ -72,13 +72,20 @@ export class UserService {
   user: User = anonymousUser;
   private _loggedIn$ = new BehaviorSubject(false);
 
-  constructor(http: Http,
-              @Inject(AUTHENTICATED_USER_ENDPOINT) authenticatedUserEndpoint: string) {
+  constructor(private http: Http,
+              @Inject(AUTHENTICATED_USER_ENDPOINT) private authenticatedUserEndpoint: string) {
 
-    http.get(authenticatedUserEndpoint)
+    this.updateLoggedInUser();
+  }
+
+  updateLoggedInUser(fakeLoginMail?: string) {
+
+    const params = fakeLoginMail ? { 'fake.login.mail': fakeLoginMail } : {};
+
+    this.http.get(this.authenticatedUserEndpoint, { params })
       .subscribe(response => {
         this.user = new User(response.json());
-        this.updateLoggedIn();
+        this._loggedIn$.next(!this.user.anonymous);
       });
   }
 
@@ -102,9 +109,5 @@ export class UserService {
   logout() {
     const currentUrl = window.location.href;
     window.location.href = `/Shibboleth.sso/Logout?return=${encodeURIComponent(currentUrl)}`;
-  }
-
-  private updateLoggedIn() {
-    this._loggedIn$.next(this.isLoggedIn());
   }
 }
