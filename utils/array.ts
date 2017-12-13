@@ -200,7 +200,7 @@ export function nextOf<T>(arr: T[], item: T) {
   return nextOfMatching(arr, x => x === item);
 }
 
-export function nextOfMatching<T, M>(arr: T[], predicate: (item: T) => boolean): T|null {
+export function nextOfMatching<T>(arr: T[], predicate: (item: T) => boolean): T|null {
 
   for (let i = 0; i < arr.length; i++) {
     if (predicate(arr[i])) {
