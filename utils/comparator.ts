@@ -20,23 +20,23 @@ export function comparingLocalizable<T>(localizer: Localizer, propertyExtractor:
   return makeChainable(property(propertyExtractor, optional(localized(localizer, stringComparatorIgnoringCase))));
 }
 
-function primitiveComparator<T extends string|number|boolean>(lhs: T, rhs: T) {
+export function primitiveComparator<T extends string|number|boolean>(lhs: T, rhs: T): number {
   return lhs === rhs ? 0 : lhs > rhs ? 1 : -1;
 }
 
-function stringComparatorIgnoringCase(lhs: string, rhs: string) {
+export function stringComparatorIgnoringCase(lhs: string, rhs: string) {
   return primitiveComparator(lhs.toLowerCase(), rhs.toLowerCase());
 }
 
-function localized<T extends Localizable>(localizer: Localizer, localizedComparator: Comparator<string> = primitiveComparator): Comparator<T> {
+export function localized<T extends Localizable>(localizer: Localizer, localizedComparator: Comparator<string> = primitiveComparator): Comparator<T> {
   return (lhs: T, rhs: T) => localizedComparator(localizer.translate(lhs), localizer.translate(rhs));
 }
 
-function property<T, P>(propertyExtractor: (item: T) => P, propertyComparator: Comparator<P>): Comparator<T> {
+export function property<T, P>(propertyExtractor: (item: T) => P, propertyComparator: Comparator<P>): Comparator<T> {
   return (lhs: T, rhs: T) => propertyComparator(propertyExtractor(lhs), propertyExtractor(rhs));
 }
 
-function optional<T>(comparator: Comparator<T>): Comparator<Optional<T>> {
+export function optional<T>(comparator: Comparator<T>): Comparator<Optional<T>> {
   return (lhs: Optional<T>, rhs: Optional<T>) => {
     if (isDefined(lhs) && !isDefined(rhs)) {
       return 1;
@@ -48,7 +48,7 @@ function optional<T>(comparator: Comparator<T>): Comparator<Optional<T>> {
   };
 }
 
-function makeChainable<T>(comparator: Comparator<T>): ChainableComparator<T> {
+export function makeChainable<T>(comparator: Comparator<T>): ChainableComparator<T> {
   (<any> comparator).andThen = (next: Comparator<T>) => makeChainable(chain(comparator, next));
   return <ChainableComparator<T>> comparator;
 }

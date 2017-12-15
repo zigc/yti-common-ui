@@ -4,6 +4,18 @@ export function limit<T>(arr: T[], amount: number): T[] {
   return arr.slice(0, Math.min(amount, arr.length));
 }
 
+export function filterDefined<T>(arr: (T|null|undefined)[]): T[] {
+  const result: T[] = [];
+
+  for (const item of arr) {
+    if (isDefined(item)) {
+      result.push(item);
+    }
+  }
+
+  return result;
+}
+
 export function normalizeAsArray<T>(obj: T|T[]|undefined): T[] {
   return Array.isArray(obj) ? obj : isDefined(obj) ? [obj] : [];
 }
@@ -31,6 +43,62 @@ export function index<T, TIndex>(items: T[], indexExtractor: (item: T) => TIndex
 
   return result;
 }
+
+export function moveElement<T>(array: T[], fromIndex: number, toIndex: number, indexChangedCb?: (item: T, index: number) => void) {
+
+  if (fromIndex >= array.length || fromIndex < 0) {
+    throw new Error('From index out of bounds: ' + fromIndex);
+  }
+
+  if (toIndex >= array.length || toIndex < 0) {
+    throw new Error('Index2 out of bounds: ' + toIndex);
+  }
+
+  const value = array.splice(fromIndex, 1);
+  array.splice(toIndex, 0, value[0]);
+
+  if (indexChangedCb) {
+    indexChangedCb(array[toIndex], toIndex);
+
+    if (fromIndex < toIndex) {
+      for (let i = fromIndex; i < toIndex; i++) {
+        indexChangedCb(array[i], i);
+      }
+    } else if (fromIndex > toIndex) {
+      for (let i = toIndex + 1; i <= fromIndex; i++) {
+        indexChangedCb(array[i], i);
+      }
+    }
+  }
+}
+
+export function swapElements<T>(array: T[], index1: number, index2: number, indexChangedCb?: (item: T, index: number) => void) {
+
+  if (index1 >= array.length || index1 < 0) {
+    throw new Error('Index1 out of bounds: ' + index1);
+  }
+
+  if (index2 >= array.length || index1 < 0) {
+    throw new Error('Index2 out of bounds: ' + index1);
+  }
+
+  const temp = array[index1];
+  array[index1] = array[index2];
+  array[index2] = temp;
+
+  if (indexChangedCb) {
+    indexChangedCb(array[index1], index1);
+    indexChangedCb(array[index2], index2);
+  }
+}
+
+export function resetWith<T>(array: T[], toResetWith: T[]) {
+  array.splice(0, array.length);
+  for (const item of toResetWith) {
+    array.push(item);
+  }
+}
+
 
 export function referenceEquality<T>(lhs: T, rhs: T) {
   return lhs === rhs;
