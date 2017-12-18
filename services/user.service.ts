@@ -39,6 +39,14 @@ export class User {
     return this.firstName + ' ' + this.lastName;
   }
 
+  isAdminInAnyOrganization() {
+    return this.isInRoleInAnyOrganization('ADMIN');
+  }
+
+  isInRoleInAnyOrganization(roles: Role|Role[]) {
+    return this.getOrganizations(roles).size > 0;
+  }
+
   getRoles(organizationIds: UUID|UUID[]): Set<Role> {
     return combineResultSets<UUID, Role>(this.rolesInOrganizations, organizationIds);
   }
