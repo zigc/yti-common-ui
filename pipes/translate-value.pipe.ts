@@ -17,7 +17,7 @@ export class TranslateValuePipe implements PipeTransform, OnDestroy {
   constructor(@Inject(LOCALIZER) private localizer: Localizer) {
   }
 
-  transform(value: Localizable, useUILanguage = true): string {
+  transform(value: Localizable, useUILanguage = false): string {
 
     this.cleanSubscription();
     this.localization = this.localizer.translate(value, useUILanguage);
