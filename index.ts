@@ -21,6 +21,7 @@ import {PopoverCloseComponent} from './components/popover-close.component';
 import {HighlightPipe} from './pipes/highlight.pipe';
 import {AccordionChevronComponent} from './components/accordion-chevron.component';
 import {KeysPipe} from './pipes/keys.pipe';
+import {NotificationDirective, NotificationWindowComponent} from "./components/notification.component";
 
 declare var require: any;
 
@@ -44,7 +45,9 @@ const components = [
   LoginModalComponent,
   MenuComponent,
   PopoverCloseComponent,
-  TranslateValuePipe
+  TranslateValuePipe,
+  NotificationDirective,
+  NotificationWindowComponent
 ];
 
 @NgModule({
@@ -53,7 +56,8 @@ const components = [
   entryComponents: [ // needed for modal components
     ErrorModalComponent,
     ConfirmationModalComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    NotificationWindowComponent
   ],
   imports: [
     BrowserModule,

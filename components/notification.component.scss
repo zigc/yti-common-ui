@@ -1,0 +1,59 @@
+:host {
+
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 6px 6px 0 0;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+
+  &.success {
+    border-top: 6px #00B38A solid;
+
+    .content {
+      .head {
+        background-color: #00B38A;
+      }
+    }
+  }
+
+  &.failure {
+    border-top: 6px #C13832 solid;
+
+    .content {
+      .head {
+        background-color: #C13832;
+      }
+    }
+  }
+
+  .content {
+
+    .head {
+      position: relative;
+      margin: -45px auto 24px auto;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+
+      svg {
+        margin-top: 14px;
+        height: 22px;
+        width: 22px;
+        fill: white;
+      }
+    }
+
+    position: relative;
+    z-index: 100;
+    background-color: white;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(3px);
+    border-radius: 0 0 6px 6px;
+    display: flex;
+    flex-flow: column;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+  }
+}
