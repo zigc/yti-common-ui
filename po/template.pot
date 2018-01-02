@@ -50,3 +50,24 @@ msgstr ""
 
 msgid "MENU"
 msgstr ""
+
+msgid "DRAFT"
+msgstr ""
+
+msgid "SUGGESTED"
+msgstr ""
+
+msgid "SUBMITTED"
+msgstr ""
+
+msgid "VALID"
+msgstr ""
+
+msgid "SUPERSEDED"
+msgstr ""
+
+msgid "RETIRED"
+msgstr ""
+
+msgid "INVALID"
+msgstr ""

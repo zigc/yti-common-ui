@@ -1,0 +1,38 @@
+import { Component, Input } from '@angular/core';
+import { Status } from '../entities/status';
+
+@Component({
+  selector: 'app-status',
+  styleUrls: ['./status.component.scss'],
+  template: `
+    <span [class.bg-danger]="danger"
+          [class.bg-pending]="submitted"
+          [class.bg-warning]="warning"
+          [class.bg-gray]="gray"
+          [class.bg-success]="success">{{status | translate}}</span>
+  `
+})
+export class StatusComponent {
+
+  @Input() status: string;
+
+  get gray() {
+    return this.status === 'DRAFT' as Status || this.status === 'SUGGESTED' as Status;
+  }
+
+  get submitted() {
+    return this.status === 'SUBMITTED' as Status;
+  }
+
+  get danger() {
+    return this.status === 'RETIRED' as Status || this.status === 'INVALID' as Status;
+  }
+
+  get warning() {
+    return this.status === 'SUPERSEDED' as Status;
+  }
+
+  get success() {
+    return this.status === 'VALID' as Status;
+  }
+}

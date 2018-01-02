@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2017-12-05 16:23+0200\n"
+"PO-Revision-Date: 2017-12-28 17:05+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 2.0.5\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -59,3 +59,24 @@ msgstr ""
 
 msgid "MENU"
 msgstr ""
+
+msgid "DRAFT"
+msgstr "Draft"
+
+msgid "SUGGESTED"
+msgstr "Suggested"
+
+msgid "SUBMITTED"
+msgstr "Submitted"
+
+msgid "VALID"
+msgstr "Valid"
+
+msgid "SUPERSEDED"
+msgstr "Superseded"
+
+msgid "RETIRED"
+msgstr "Retired"
+
+msgid "INVALID"
+msgstr "Invalid"
