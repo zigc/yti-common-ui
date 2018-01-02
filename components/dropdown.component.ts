@@ -3,7 +3,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { firstMatching } from '../utils/array';
 import { requireDefined } from '../utils/object';
 import { Placement as NgbPlacement } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateService } from 'ng2-translate';
 
 export type Placement = NgbPlacement;
 export type Options<T> = Option<T>[];
@@ -46,9 +45,6 @@ export class DropdownComponent<T> implements OnChanges, ControlValueAccessor {
   selection: T|null;
   initialized = false;
 
-  constructor(private translateService: TranslateService) {
-  }
-
   private propagateChange: (fn: any) => void = () => {};
   private propagateTouched: (fn: any) => void = () => {};
 
@@ -67,10 +63,7 @@ export class DropdownComponent<T> implements OnChanges, ControlValueAccessor {
   }
 
   get selectionName() {
-    const firstMatch = firstMatching(this.options, o => o.value === this.selection);
-    return firstMatch ? requireDefined(firstMatch).name() 
-                      : this.selection ? String(this.translateService.instant(String(this.selection)))
-                                       : '';
+    return requireDefined(firstMatching(this.options, o => o.value === this.selection)).name();
   }
 
   isSelected(option: Option<T>) {
