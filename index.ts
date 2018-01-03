@@ -15,6 +15,7 @@ import {LoginModalComponent, LoginModalService} from './components/login-modal.c
 import {MenuComponent} from './components/menu.component';
 import {DropdownComponent} from './components/dropdown.component';
 import {FilterDropdownComponent} from './components/filter-dropdown.component';
+import {StatusDropdownComponent} from './components/status-dropdown.component';
 import {UserService, AUTHENTICATED_USER_ENDPOINT} from './services/user.service';
 import {TranslateValuePipe, LOCALIZER} from './pipes/translate-value.pipe';
 import {PopoverCloseComponent} from './components/popover-close.component';
@@ -39,6 +40,7 @@ const components = [
   DropdownComponent,
   ErrorModalComponent,
   FilterDropdownComponent,
+  StatusDropdownComponent,
   FooterComponent,
   HighlightPipe,
   KeysPipe,
