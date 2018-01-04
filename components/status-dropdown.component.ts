@@ -29,7 +29,7 @@ export type Placement = NgbPlacement;
     </div>  
   `
 })
-export class StatusDropdownComponent<T> implements ControlValueAccessor {
+export class StatusDropdownComponent implements ControlValueAccessor {
 
   @Input() placement: Placement = 'bottom-left';
 
