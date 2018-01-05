@@ -92,7 +92,7 @@
   &:not([disabled]):not(.disabled).active,
   .show > &.dropdown-toggle {
     color: $color-hover;
-    background-color: $color;
+    background-color: $white;
     border-color: $color;
     // Avoid using mixin so we can pass custom focus shadow properly
     box-shadow: 0 0 0 $input-btn-focus-width rgba($color, .5);
