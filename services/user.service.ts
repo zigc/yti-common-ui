@@ -74,6 +74,8 @@ const anonymousUser = new User({
   organizationsInRole: {}
 });
 
+const oneMinuteInMs = 60 * 1000;
+
 @Injectable()
 export class UserService {
 
@@ -84,6 +86,12 @@ export class UserService {
               @Inject(AUTHENTICATED_USER_ENDPOINT) private authenticatedUserEndpoint: string) {
 
     this.updateLoggedInUser();
+
+    setInterval(() => {
+      if (!this.user.anonymous) {
+        this.updateLoggedInUser();
+      }
+    }, oneMinuteInMs);
   }
 
   updateLoggedInUser(fakeLoginMail?: string) {
