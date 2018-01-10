@@ -8,3 +8,4 @@ export type Status = 'SUPERSEDED'
 
 export const allStatuses = ['DRAFT', 'SUGGESTED', 'SUBMITTED', 'VALID', 'SUPERSEDED', 'RETIRED', 'INVALID'] as Status[];
 export const selectableStatuses = ['DRAFT', 'SUBMITTED', 'VALID', 'SUPERSEDED', 'RETIRED', 'INVALID'] as Status[];
+export const restrictedStatuses = ['VALID', 'SUPERSEDED', 'RETIRED', 'INVALID'] as Status[];
