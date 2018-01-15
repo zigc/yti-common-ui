@@ -158,7 +158,7 @@ export class NotificationDirective {
     this.show('failure', msg, durationInMs, placement);
   }
 
-  private isOpen() {
+  isOpen() {
     return this.popupService !== null && this.timeoutHandle !== null;
   }
 
