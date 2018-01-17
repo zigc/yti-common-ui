@@ -71,3 +71,6 @@ msgstr ""
 
 msgid "INVALID"
 msgstr ""
+
+msgid "Contact"
+msgstr ""

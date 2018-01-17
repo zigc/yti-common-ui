@@ -32,7 +32,7 @@ import { TranslateService } from 'ng2-translate';
               <a href="/ohjeet" translate>User support</a>
             </li>
             <li>
-              <a href="/ohjeet" translate>Feedback</a>
+              <a href="{{feedbackLink}}" translate>Feedback</a>
             </li>
           </ul>
         </div>
@@ -55,5 +55,10 @@ export class FooterComponent {
   get licenseLink() {
     const language = this.translateService.currentLang;
     return 'https://eupl.eu/1.2/' + language + '/';;
+  }
+
+  get feedbackLink() {
+    const subject = this.translateService.instant('Contact') + ':%20' + this.title + '';
+    return 'mailto:yhteentoimivuus@vrk.fi?subject=' + subject;
   }
 }
