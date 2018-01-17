@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import { TranslateService } from 'ng2-translate';
 
 @Component({
   selector: 'app-footer',
@@ -37,7 +38,7 @@ import {Component, Input} from '@angular/core';
         </div>
 
         <div class="col-md-4">
-          <a href="/" translate>Sourcecode is licensed under EUPL-1.2 license.</a>
+          <a href="{{licenseLink}}" target="_blank" translate>Sourcecode is licensed under EUPL-1.2 license.</a>          
         </div>
       </div>
 
@@ -47,4 +48,12 @@ import {Component, Input} from '@angular/core';
 export class FooterComponent {
 
   @Input() title: string;
+
+  constructor(private translateService: TranslateService) {
+  }
+
+  get licenseLink() {
+    const language = this.translateService.currentLang;
+    return 'https://eupl.eu/1.2/' + language + '/';;
+  }
 }
