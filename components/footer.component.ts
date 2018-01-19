@@ -26,9 +26,9 @@ import { TranslateService } from 'ng2-translate';
               <a href="/tietoa-suomifi-verkkopalvelusta" translate>Information about the web service</a>
             </li>
             <li>
-              <a href="/tietosuojaseloste" translate>Description of file</a>
+              <a href="{{descriptionOfFileLink}}" target="_blank" translate>Description of file</a>
             </li>
-            <li>
+            <li *ngIf="showUserSupportLink()">
               <a href="/ohjeet" translate>User support</a>
             </li>
             <li>
@@ -52,13 +52,24 @@ export class FooterComponent {
   constructor(private translateService: TranslateService) {
   }
 
+  get language() {
+    return this.translateService.currentLang;
+  }
+
   get licenseLink() {
-    const language = this.translateService.currentLang;
-    return 'https://eupl.eu/1.2/' + language + '/';;
+    return 'https://eupl.eu/1.2/' + this.language + '/';
   }
 
   get feedbackLink() {
     const subject = this.translateService.instant('Contact') + ':%20' + this.title;
     return 'mailto:yhteentoimivuus@vrk.fi?subject=' + subject;
+  }
+
+  get descriptionOfFileLink() {
+    return 'https://yhteentoimiva.suomi.fi/tietosuojaseloste.pdf';
+  }
+
+  showUserSupportLink() {
+    return false;
   }
 }
