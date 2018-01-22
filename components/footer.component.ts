@@ -73,8 +73,4 @@ export class FooterComponent {
   showUserSupportLink() {
     return false;
   }
-
-  showInformationLink() {
-    return false;
-  }
 }
