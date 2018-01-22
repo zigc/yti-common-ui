@@ -22,8 +22,8 @@ import { TranslateService } from 'ng2-translate';
         <div class="col-md-4">
 
           <ul class="link-list">
-            <li *ngIf='showInformationLink()'>
-              <a [routerLink]="['/information']" translate>Information about the web service</a>
+            <li>
+              <a (click)="onInformationClick()" translate>Information about the web service</a>
             </li>
             <li>
               <a href="{{descriptionOfFileLink}}" target="_blank" translate>Description of file</a>
@@ -48,6 +48,7 @@ import { TranslateService } from 'ng2-translate';
 export class FooterComponent {
 
   @Input() title: string;
+  @Input() onInformationClick: () => void;
 
   constructor(private translateService: TranslateService) {
   }
@@ -74,6 +75,6 @@ export class FooterComponent {
   }
 
   showInformationLink() {
-    return true;
+    return false;
   }
 }

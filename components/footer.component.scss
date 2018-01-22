@@ -11,6 +11,11 @@
 a {
   cursor: pointer;
   font-size: smaller;
+  color: $primary !important;
+  
+  &:hover {
+    text-decoration: underline !important;
+  }
 }
 
 h4 {
