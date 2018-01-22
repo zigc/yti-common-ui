@@ -22,8 +22,8 @@ import { TranslateService } from 'ng2-translate';
         <div class="col-md-4">
 
           <ul class="link-list">
-            <li>
-              <a href="/tietoa-suomifi-verkkopalvelusta" translate>Information about the web service</a>
+            <li *ngIf='showInformationLink()'>
+              <a [routerLink]="['/information']" translate>Information about the web service</a>
             </li>
             <li>
               <a href="{{descriptionOfFileLink}}" target="_blank" translate>Description of file</a>
@@ -71,5 +71,9 @@ export class FooterComponent {
 
   showUserSupportLink() {
     return false;
+  }
+
+  showInformationLink() {
+    return true;
   }
 }
