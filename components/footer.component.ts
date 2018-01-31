@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslateService } from 'ng2-translate';
 
 @Component({
@@ -23,7 +23,7 @@ import { TranslateService } from 'ng2-translate';
 
           <ul class="link-list">
             <li>
-              <a (click)="onInformationClick()" translate>Information about the web service</a>
+              <a (click)="informationClick.emit()" translate>Information about the web service</a>
             </li>
             <li>
               <a href="{{descriptionOfFileLink}}" target="_blank" translate>Description of file</a>
@@ -38,7 +38,7 @@ import { TranslateService } from 'ng2-translate';
         </div>
 
         <div class="col-md-4">
-          <a href="{{licenseLink}}" target="_blank" translate>Sourcecode is licensed under EUPL-1.2 license.</a>          
+          <a href="{{licenseLink}}" target="_blank" translate>Sourcecode is licensed under EUPL-1.2 license.</a>
         </div>
       </div>
 
@@ -48,7 +48,7 @@ import { TranslateService } from 'ng2-translate';
 export class FooterComponent {
 
   @Input() title: string;
-  @Input() onInformationClick: () => void;
+  @Output() informationClick = new EventEmitter();
 
   constructor(private translateService: TranslateService) {
   }
