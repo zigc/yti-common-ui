@@ -18,6 +18,10 @@ export class ConfirmationModalService {
   openEditInProgress() {
     return this.open('Edit in progress', 'Are you sure that you want to continue? By continuing unsaved changes will be lost.');
   }
+
+  openModalClose() {
+    return this.open('Modals are open', 'Are you sure that you want to continue? By continuing all modals will be closed.');
+  }
 }
 
 @Component({
