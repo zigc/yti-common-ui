@@ -1,7 +1,7 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Placement as NgbPlacement } from '@ng-bootstrap/ng-bootstrap';
-import { Status, selectableStatuses } from '../entities/status';
+import {Status, selectableStatuses, restrictedStatuses} from '../entities/status';
 
 export type Placement = NgbPlacement;
 
@@ -32,12 +32,16 @@ export type Placement = NgbPlacement;
 export class StatusDropdownComponent implements ControlValueAccessor {
 
   @Input() placement: Placement = 'bottom-left';
+  @Input() restrict = false;
 
   selection: Status;
-  options = selectableStatuses;
 
   private propagateChange: (fn: any) => void = () => {};
   private propagateTouched: (fn: any) => void = () => {};
+
+  get options(): Status[] {
+    return !this.restrict ? selectableStatuses : restrictedStatuses;
+  }
 
   isSelected(option: Status) {
     return this.selection === option;
