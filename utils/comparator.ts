@@ -16,8 +16,8 @@ export function comparingPrimitive<T>(propertyExtractor: (item: T) => Optional<s
   return makeChainable(property(propertyExtractor, optional(primitiveComparator)));
 }
 
-export function comparingLocalizable<T>(localizer: Localizer, propertyExtractor: (item: T) => Optional<Localizable>): ChainableComparator<T> {
-  return makeChainable(property(propertyExtractor, optional(localized(localizer, stringComparatorIgnoringCase))));
+export function comparingLocalizable<T>(localizer: Localizer, propertyExtractor: (item: T) => Optional<Localizable>, useUILanguage = true): ChainableComparator<T> {
+  return makeChainable(property(propertyExtractor, optional(localized(localizer, useUILanguage, stringComparatorIgnoringCase))));
 }
 
 export function primitiveComparator<T extends string|number|boolean>(lhs: T, rhs: T): number {
@@ -28,8 +28,8 @@ export function stringComparatorIgnoringCase(lhs: string, rhs: string) {
   return primitiveComparator(lhs.toLowerCase(), rhs.toLowerCase());
 }
 
-export function localized<T extends Localizable>(localizer: Localizer, localizedComparator: Comparator<string> = primitiveComparator): Comparator<T> {
-  return (lhs: T, rhs: T) => localizedComparator(localizer.translate(lhs), localizer.translate(rhs));
+export function localized<T extends Localizable>(localizer: Localizer, useUILanguage: boolean, localizedComparator: Comparator<string> = primitiveComparator): Comparator<T> {
+  return (lhs: T, rhs: T) => localizedComparator(localizer.translate(lhs, useUILanguage), localizer.translate(rhs, true));
 }
 
 export function property<T, P>(propertyExtractor: (item: T) => P, propertyComparator: Comparator<P>): Comparator<T> {
