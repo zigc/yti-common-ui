@@ -1,6 +1,13 @@
 import { Component, Injectable, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+export interface ErrorOptions {
+  title: string;
+  body: string;
+  bodyParams?: {};
+  err?: any;
+}
+
 @Injectable()
 export class ErrorModalService {
 
@@ -13,6 +20,15 @@ export class ErrorModalService {
     instance.title = title;
     instance.body = body;
     instance.error = error;
+  }
+
+  openWithOptions(options: ErrorOptions) {
+    const modalRef = this.modalService.open(ErrorModalComponent, { size: 'sm' });
+    const instance = modalRef.componentInstance as ErrorModalComponent;
+    instance.title = options.title;
+    instance.body = options.body;
+    instance.bodyParams = options.bodyParams;
+    instance.error = options.err;
   }
 
   openSubmitError(err?: any) {
@@ -36,10 +52,8 @@ export class ErrorModalService {
     <div class="modal-body">
       <div class="row">
         <div class="col-md-12">
-
-          <p>{{body | translate}}</p>
+          <p translate [translateParams]="{identifier: bodyParams}">{{body}}</p>
           <pre *ngIf="error">{{error | json}}</pre>
-          
         </div>
       </div>
     </div>
@@ -52,6 +66,7 @@ export class ErrorModalComponent {
 
   @Input() title: string;
   @Input() body: string;
+  @Input() bodyParams: any;
   @Input() error?: any;
 
   constructor(private modal: NgbActiveModal) {
