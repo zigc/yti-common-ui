@@ -52,7 +52,7 @@ export class ErrorModalService {
     <div class="modal-body">
       <div class="row">
         <div class="col-md-12">
-          <p translate [translateParams]="{identifier: bodyParams}">{{body}}</p>
+          <p translate [translateParams]="bodyParams">{{body}}</p>
           <pre *ngIf="error">{{error | json}}</pre>
         </div>
       </div>
@@ -66,7 +66,7 @@ export class ErrorModalComponent {
 
   @Input() title: string;
   @Input() body: string;
-  @Input() bodyParams: any;
+  @Input() bodyParams?: {};
   @Input() error?: any;
 
   constructor(private modal: NgbActiveModal) {
