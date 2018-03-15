@@ -12,11 +12,13 @@ import {Observable} from 'rxjs';
           <span *ngIf="breadcrumb.localizationKey">{{breadcrumb.localizationKey | translate}}</span>
           <span *ngIf="breadcrumb.localizationKey && breadcrumb.label">:</span>
           <span *ngIf="breadcrumb.label">{{breadcrumb.label | translateValue:true}}</span>
+          <span *ngIf="breadcrumb.value">{{breadcrumb.value}}</span>
         </a>
         <span *ngIf="active || !breadcrumb.route">
           <span *ngIf="breadcrumb.localizationKey">{{breadcrumb.localizationKey | translate}}</span>
           <span *ngIf="breadcrumb.localizationKey && breadcrumb.label">:</span>
           <span *ngIf="breadcrumb.label">{{breadcrumb.label | translateValue:true}}</span>
+          <span *ngIf="breadcrumb.value">{{breadcrumb.value}}</span>
         </span>
       </li>
     </ol>
