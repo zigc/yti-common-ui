@@ -1,5 +1,6 @@
 import {normalizeAsArray} from './array';
 import {Localizable, LocalizableArray, Localization} from '../types/localization';
+import { hasValue } from './object';
 
 export function asLocalizable(localizations: Localization[], ignoreConflicts = false): Localizable {
 
@@ -28,4 +29,8 @@ export function withFirstLocalizations(localizable: Localizable|LocalizableArray
   }
 
   return result;
+}
+
+export function hasLocalization(localizable: Localizable) {
+  return !!localizable && hasValue(localizable);
 }
