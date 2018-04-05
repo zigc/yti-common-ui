@@ -27,7 +27,7 @@ msgid ""
 "Finland"
 msgstr ""
 
-msgid "Information about the web service"
+msgid "Information about the service"
 msgstr ""
 
 msgid "Description of file"

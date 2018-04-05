@@ -27,8 +27,8 @@ msgid ""
 "Finland"
 msgstr "Verkkopalvelun kehittämisestä vastaa Väestörekisterikeskus"
 
-msgid "Information about the web service"
-msgstr "Tietoa verkkopalvelusta"
+msgid "Information about the service"
+msgstr "Tietoa palvelusta"
 
 msgid "Description of file"
 msgstr "Tietosuojaseloste"

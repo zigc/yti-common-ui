@@ -23,7 +23,7 @@ import { TranslateService } from 'ng2-translate';
 
           <ul class="link-list">
             <li>
-              <a (click)="informationClick.emit()" translate>Information about the web service</a>
+              <a (click)="informationClick.emit()" translate>Information about the service</a>
             </li>
             <li>
               <a href="{{descriptionOfFileLink}}" target="_blank" translate>Description of file</a>
