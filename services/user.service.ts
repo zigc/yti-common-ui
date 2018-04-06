@@ -102,6 +102,7 @@ export class UserService {
       .subscribe(response => {
         this.user = new User(response.json());
         this._loggedIn$.next(!this.user.anonymous);
+        window.location.reload();
       });
   }
 
