@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgbPanel } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-accordion-chevron',
-  template: `<span class="fa" [class.fa-angle-down]="open" [class.fa-angle-right]="!open"></span>`
+  template: `<span [id]="id" class="fa" [class.fa-angle-down]="open" [class.fa-angle-right]="!open"></span>`
 })
 export class AccordionChevronComponent {
+
+  @Input() id: string;
 
   constructor(private ngbPanel: NgbPanel) {
   }

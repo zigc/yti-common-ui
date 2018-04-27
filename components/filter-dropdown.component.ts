@@ -7,13 +7,15 @@ export type FilterOptions<T> = Options<T>;
 @Component({
   selector: 'app-filter-dropdown',
   template: `
-    <app-dropdown [options]="options"
+    <app-dropdown [id]="id"
+                  [options]="options"
                   [showNullOption]="true"
                   [(ngModel)]="selection"></app-dropdown>
   `
 })
 export class FilterDropdownComponent<T> {
 
+  @Input() id: string;
   @Input() options: FilterOptions<T>;
   @Input() filterSubject: BehaviorSubject<T>;
 

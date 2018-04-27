@@ -4,7 +4,7 @@ import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-popover-close',
   styleUrls: ['./popover-close.component.scss'],
-  template: `<i class="fa fa-times" (click)="close()"></i>`
+  template: `<i id="popover_close_link" class="fa fa-times" (click)="close()"></i>`
 })
 export class PopoverCloseComponent {
 

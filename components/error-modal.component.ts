@@ -42,7 +42,7 @@ export class ErrorModalService {
   template: `
     <div class="modal-header modal-header-danger">
       <h4 class="modal-title">
-        <a><i class="fa fa-times" (click)="close()"></i></a>
+        <a><i id="close_error_modal_link" class="fa fa-times" (click)="close()"></i></a>
         <span>
           <i class="fa fa-exclamation-circle"></i>
           {{title | translate}}
@@ -58,7 +58,7 @@ export class ErrorModalService {
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-action" (click)="close()" translate>Close</button>
+      <button id="close_error_modal_button" type="button" class="btn btn-action" (click)="close()" translate>Close</button>
     </div>
   `
 })

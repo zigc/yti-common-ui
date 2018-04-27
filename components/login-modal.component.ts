@@ -19,7 +19,7 @@ export class LoginModalService {
   template: `
     <div class="modal-header">
       <h4 class="modal-title">
-        <a><i class="fa fa-times" (click)="cancel()"></i></a>
+        <a><i id="close_login_modal_link" class="fa fa-times" (click)="cancel()"></i></a>
         <span translate>Login</span>
       </h4>
     </div>
@@ -32,8 +32,8 @@ export class LoginModalService {
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-action" (click)="login()" translate>Log In</button>
-      <button type="button" class="btn btn-action" (click)="register()" translate>Register</button>
+      <button id="login_modal_button" type="button" class="btn btn-action" (click)="login()" translate>Log In</button>
+      <button id="register_login_modal_button" type="button" class="btn btn-action" (click)="register()" translate>Register</button>
     </div>
   `
 })

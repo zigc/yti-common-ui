@@ -14,12 +14,13 @@ export type Placement = NgbPlacement;
   }],
   template: `
     <div ngbDropdown [placement]="placement">
-      <button class="btn btn-dropdown" ngbDropdownToggle>
+      <button [id]="'selected_' + id" class="btn btn-dropdown" ngbDropdownToggle>
         <span>{{selection | translate}}</span>
       </button>
 
       <div ngbDropdownMenu>
-        <button *ngFor="let option of options"
+        <button *ngFor="let option of options; let i = index"
+                [id]="i + '_' + id"
                 (click)="select(option)"
                 class="dropdown-item"
                 [class.active]="isSelected(option)">
@@ -31,6 +32,7 @@ export type Placement = NgbPlacement;
 })
 export class StatusDropdownComponent implements ControlValueAccessor {
 
+  @Input() id: string;
   @Input() placement: Placement = 'bottom-left';
   @Input() restrict = false;
 

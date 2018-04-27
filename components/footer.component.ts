@@ -23,22 +23,22 @@ import { TranslateService } from 'ng2-translate';
 
           <ul class="link-list">
             <li>
-              <a (click)="informationClick.emit()" translate>Information about the service</a>
+              <a id="information_link" (click)="informationClick.emit()" translate>Information about the service</a>
             </li>
             <li>
-              <a href="{{descriptionOfFileLink}}" target="_blank" translate>Description of file</a>
+              <a id="description_of_file_link" [href]="descriptionOfFileLink" target="_blank" translate>Description of file</a>
             </li>
             <li *ngIf="showUserSupportLink()">
-              <a href="/ohjeet" translate>User support</a>
+              <a id="user_support_link" href="/ohjeet" translate>User support</a>
             </li>
             <li>
-              <a href="{{feedbackLink}}" translate>Feedback</a>
+              <a id="feedback_link" [href]="feedbackLink" translate>Feedback</a>
             </li>
           </ul>
         </div>
 
         <div class="col-md-4">
-          <a href="{{licenseLink}}" target="_blank" translate>Sourcecode is licensed under EUPL-1.2 license.</a>
+          <a id="license_link" [href]="licenseLink" target="_blank" translate>Sourcecode is licensed under EUPL-1.2 license.</a>
         </div>
       </div>
 

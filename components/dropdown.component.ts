@@ -21,12 +21,13 @@ export interface Option<T> {
   }],
   template: `
     <div ngbDropdown *ngIf="initialized" [placement]="placement">
-      <button class="btn btn-dropdown" ngbDropdownToggle>
+      <button [id]="'selected_' + id" class="btn btn-dropdown" ngbDropdownToggle>
         <span>{{selectionName}}</span>
       </button>
 
       <div ngbDropdownMenu>
-        <button *ngFor="let option of visibleOptions"
+        <button *ngFor="let option of visibleOptions; let i = index"
+                [id]="i + '_' + id"
                 (click)="select(option)"
                 class="dropdown-item"
                 [class.active]="isSelected(option)">
@@ -38,9 +39,10 @@ export interface Option<T> {
 })
 export class DropdownComponent<T> implements OnChanges, ControlValueAccessor {
 
+  @Input() id: string;
   @Input() options: Options<T>;
   @Input() showNullOption = false;
-  @Input() placement: Placement = 'bottom-left';
+  @Input() placement: Placement = 'bottom-left'; 
 
   selection: T|null;
   initialized = false;
