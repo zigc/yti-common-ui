@@ -1,4 +1,4 @@
-import {normalizeAsArray} from './array';
+import {normalizeAsArray, anyMatching} from './array';
 import {Localizable, LocalizableArray, Localization} from '../types/localization';
 import { hasValue } from './object';
 
@@ -33,4 +33,8 @@ export function withFirstLocalizations(localizable: Localizable|LocalizableArray
 
 export function hasLocalization(localizable: Localizable) {
   return !!localizable && hasValue(localizable);
+}
+
+export function localizableMatches(localizable: Localizable, search: string): boolean {
+  return anyMatching(Object.values(localizable), value => value.toLowerCase().indexOf(search.toLowerCase()) !== -1);
 }
