@@ -19,8 +19,8 @@ export type Placement = NgbPlacement;
       </button>
 
       <div ngbDropdownMenu>
-        <button *ngFor="let option of options; let i = index"
-                [id]="i + '_' + id"
+        <button *ngFor="let option of options"
+                [id]="option + '_' + id"
                 (click)="select(option)"
                 class="dropdown-item"
                 [class.active]="isSelected(option)">

@@ -8,8 +8,9 @@ export type Placement = NgbPlacement;
 export type Options<T> = Option<T>[];
 
 export interface Option<T> {
-  value: T|null,
+  value: T|null;  
   name: () => string;
+  idName?: () => string;
 }
 
 @Component({
@@ -27,7 +28,7 @@ export interface Option<T> {
 
       <div ngbDropdownMenu>
         <button *ngFor="let option of visibleOptions; let i = index"
-                [id]="i + '_' + id"
+                [id]="getIdName(option, i) + '_' + id"
                 (click)="select(option)"
                 class="dropdown-item"
                 [class.active]="isSelected(option)">
@@ -66,6 +67,10 @@ export class DropdownComponent<T> implements OnChanges, ControlValueAccessor {
 
   get selectionName() {
     return requireDefined(firstMatching(this.options, o => o.value === this.selection)).name();
+  }
+
+  getIdName(option: Option<T>, index: number) {
+    return option.idName ? option.idName() : index;
   }
 
   isSelected(option: Option<T>) {
