@@ -9,7 +9,7 @@ function normalizeAsId(resourceName: string) {
     .replace(/Å/g, 'A');
 }
 
-export function labelNameToResourceIdName(labelName: string) {
+export function labelNameToResourceIdIdentifier(labelName: string) {
   return normalizeAsId(capitalizeEveryWord(labelName));
 }
 

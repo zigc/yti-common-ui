@@ -10,7 +10,7 @@ export type Options<T> = Option<T>[];
 export interface Option<T> {
   value: T|null;  
   name: () => string;
-  idName?: () => string;
+  idIdentifier?: () => string;
 }
 
 @Component({
@@ -28,7 +28,7 @@ export interface Option<T> {
 
       <div ngbDropdownMenu>
         <button *ngFor="let option of visibleOptions; let i = index"
-                [id]="getIdName(option, i) + '_' + id"
+                [id]="getIdIdentifier(option, i) + '_' + id"
                 (click)="select(option)"
                 class="dropdown-item"
                 [class.active]="isSelected(option)">
@@ -69,8 +69,8 @@ export class DropdownComponent<T> implements OnChanges, ControlValueAccessor {
     return requireDefined(firstMatching(this.options, o => o.value === this.selection)).name();
   }
 
-  getIdName(option: Option<T>, index: number) {
-    return option.idName ? option.idName() : index;
+  getIdIdentifier(option: Option<T>, index: number) {
+    return option.idIdentifier ? option.idIdentifier() : index;
   }
 
   isSelected(option: Option<T>) {
