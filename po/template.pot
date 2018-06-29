@@ -90,3 +90,6 @@ msgid ""
 "Are you sure that you want to continue? By continuing all modals will be "
 "closed."
 msgstr ""
+
+msgid "Required"
+msgstr ""

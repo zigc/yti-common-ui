@@ -23,6 +23,7 @@ import {HighlightPipe} from './pipes/highlight.pipe';
 import {AccordionChevronComponent} from './components/accordion-chevron.component';
 import {KeysPipe} from './pipes/keys.pipe';
 import {NotificationDirective, NotificationWindowComponent} from "./components/notification.component";
+import {RequiredSymbolComponent} from './components/required-symbol.component';
 
 declare var require: any;
 
@@ -49,7 +50,8 @@ const components = [
   PopoverCloseComponent,
   TranslateValuePipe,
   NotificationDirective,
-  NotificationWindowComponent
+  NotificationWindowComponent,
+  RequiredSymbolComponent
 ];
 
 @NgModule({
