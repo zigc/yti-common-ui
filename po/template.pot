@@ -10,6 +10,9 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+msgid "{{body}}"
+msgstr ""
+
 msgid "Close"
 msgstr ""
 
@@ -57,7 +60,10 @@ msgstr ""
 msgid "RETIRED"
 msgstr ""
 
-msgid "DRAFT"
+msgid "UNFINISHED"
+msgstr ""
+
+msgid "SUGGESTED"
 msgstr ""
 
 msgid "SUBMITTED"
@@ -69,7 +75,7 @@ msgstr ""
 msgid "SUPERSEDED"
 msgstr ""
 
-msgid "SUGGESTED"
+msgid "DRAFT"
 msgstr ""
 
 msgid "INVALID"
