@@ -8,4 +8,10 @@ span {
   color: $white;
   border-radius: 3px;
   padding: 3px 10px;
+
+  .bg-white {
+    color: $black;
+    border-width: 1px;
+    border-color: $black;
+  }
 }
