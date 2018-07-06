@@ -10,17 +10,12 @@ import { Status } from '../entities/status';
           [class.bg-warning]="warning"
           [class.bg-gray]="gray"
           [class.bg-white]="white"
-          [class.text-dark]="darkText"
           [class.bg-success]="success">{{status | translate}}</span>
   `
 })
 export class StatusComponent {
 
   @Input() status: string;
-
-  get darkText() {
-    return this.status === 'UNFINISHED' as Status;
-  }
 
   get white() {
     return this.status === 'UNFINISHED' as Status;
