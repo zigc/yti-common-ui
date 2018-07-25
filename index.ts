@@ -24,6 +24,7 @@ import {AccordionChevronComponent} from './components/accordion-chevron.componen
 import {KeysPipe} from './pipes/keys.pipe';
 import {NotificationDirective, NotificationWindowComponent} from "./components/notification.component";
 import {RequiredSymbolComponent} from './components/required-symbol.component';
+import {InformationSymbolComponent} from './components/information-symbol.component';
 
 declare var require: any;
 
@@ -51,7 +52,8 @@ const components = [
   TranslateValuePipe,
   NotificationDirective,
   NotificationWindowComponent,
-  RequiredSymbolComponent
+  RequiredSymbolComponent,
+  InformationSymbolComponent
 ];
 
 @NgModule({
