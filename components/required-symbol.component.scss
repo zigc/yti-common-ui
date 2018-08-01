@@ -1,0 +1,7 @@
+@import '~font-awesome/scss/variables';
+@import '../theme/init';
+
+.fa-asterisk {
+  color: $danger;
+  font-size: small;
+}
