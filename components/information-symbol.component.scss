@@ -1,0 +1,7 @@
+@import '~font-awesome/scss/variables';
+@import '../theme/init';
+
+.fa-info-circle {
+  color: $info;
+  font-size: small;
+}
