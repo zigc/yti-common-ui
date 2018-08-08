@@ -1,4 +1,4 @@
-function normalizeAsId(resourceName: string) {
+export function normalizeAsId(resourceName: string) {
   return resourceName
     .replace(/\s/g, '')
     .replace(/ö/g, 'o')
