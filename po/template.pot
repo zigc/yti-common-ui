@@ -60,7 +60,7 @@ msgstr ""
 msgid "RETIRED"
 msgstr ""
 
-msgid "UNFINISHED"
+msgid "INCOMPLETE"
 msgstr ""
 
 msgid "SUGGESTED"

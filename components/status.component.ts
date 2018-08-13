@@ -18,7 +18,7 @@ export class StatusComponent {
   @Input() status: string;
 
   get white() {
-    return this.status === 'UNFINISHED' as Status;
+    return this.status === 'INCOMPLETE' as Status;
   }
 
   get gray() {
