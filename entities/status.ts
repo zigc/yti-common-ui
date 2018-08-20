@@ -10,3 +10,4 @@ export type Status = 'INCOMPLETE'
 export const allStatuses = ['INCOMPLETE', 'DRAFT', 'SUGGESTED', 'SUBMITTED', 'VALID', 'SUPERSEDED', 'RETIRED', 'INVALID'] as Status[];
 export const selectableStatuses = ['INCOMPLETE', 'DRAFT', 'SUBMITTED', 'VALID', 'SUPERSEDED', 'RETIRED', 'INVALID'] as Status[];
 export const restrictedStatuses = ['VALID', 'SUPERSEDED', 'RETIRED', 'INVALID'] as Status[];
+export const regularStatuses = ['DRAFT', 'SUGGESTED', 'SUBMITTED', 'VALID', 'SUPERSEDED', 'RETIRED', 'INVALID'] as Status[];
