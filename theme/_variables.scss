@@ -12,6 +12,8 @@ $gray-600:      #84898C !default;
 $gray-700:      #495057 !default;
 $gray-800:      #333 !default;
 $gray-900:      #282828 !default;
+$gray-k20:      #84898c !default;
+$gray-k40:      #636769 !default;
 $gray:          $gray-500 !default;
 $black:         $gray-900 !default;
 
@@ -20,11 +22,14 @@ $indigo:        #6610f2 !default;
 $purple:        #6f42c1 !default;
 $pink:          #e83e8c !default;
 $red:           #c13832 !default;
-$orange:        #fd7e14 !default;
+$orange:        #ea7125 !default;
 $yellow:        #f4aa00 !default;
 $green:         #00b38a !default;
 $teal:          #B9CF96 !default;
 $cyan:          #2a6ebb !default;
+$blue-90p:      #3f7cc1 !default;
+$blue-link:     $cyan;
+$blue-k10:      #2562a7 !default;
 
 $primary:       $cyan !default;
 $success:       $green !default;
@@ -98,6 +103,7 @@ $popover-header-bg:           $white;
 // Fonts
 
 $font-family-sans-serif:      "SourceSansPro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$font-family-sans-semibold:   SourceSansProSemibold,Arial,helvetica,sans-serif,clean !default;
 $font-size-base:              0.9375rem !default;
 $headings-font-weight:        200 !default;
 $headings-margin-bottom:      20px;
