@@ -273,12 +273,12 @@ ul.nav-tabs {
 
   &:after {
     display: inline-block;
-    font-family: FontAwesome;
+    font-family: "Font Awesome 5 Free Solid";
     font-size: 90%;
     padding-left: 5px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    content: $fa-var-chevron-down;
+    content: '\f078'; // FIXME: use $fa-var-chevron-down
     color: $color;
   }
 }

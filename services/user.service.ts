@@ -1,8 +1,7 @@
 import {Inject, Injectable, InjectionToken} from '@angular/core';
-import {Http} from '@angular/http';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {combineResultSets, convertToMapSet, hasAny } from '../utils/set';
-import {Observable} from 'rxjs/Observable';
+import {Observable, BehaviorSubject} from 'rxjs';
+import {HttpClient, HttpParams} from '@angular/common/http';
 
 export const AUTHENTICATED_USER_ENDPOINT = new InjectionToken<string>('authenticated.user.endpoint');
 
@@ -82,7 +81,7 @@ export class UserService {
   user: User = anonymousUser;
   private _loggedIn$ = new BehaviorSubject(false);
 
-  constructor(private http: Http,
+  constructor(private http: HttpClient,
               @Inject(AUTHENTICATED_USER_ENDPOINT) private authenticatedUserEndpoint: string) {
 
     this.updateLoggedInUser();
@@ -96,11 +95,15 @@ export class UserService {
 
   updateLoggedInUser(fakeLoginMail?: string) {
 
-    const params = fakeLoginMail ? { 'fake.login.mail': fakeLoginMail } : {};
+    let params = new HttpParams();
 
-    this.http.get(this.authenticatedUserEndpoint, { params })
-      .subscribe(response => {
-        this.user = new User(response.json());
+    if (fakeLoginMail) {
+      params = params.append('fake.login.mail', fakeLoginMail);
+    }
+
+    this.http.get<any>(this.authenticatedUserEndpoint, { params })
+      .subscribe((body: any) => {
+        this.user = new User(body);
         this._loggedIn$.next(!this.user.anonymous);
       });
   }

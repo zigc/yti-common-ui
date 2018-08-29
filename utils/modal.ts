@@ -1,8 +1,10 @@
 import { ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
-export function ignoreModalClose(err: any) {
+export function ignoreModalClose<T>(err: any): never|null {
   if (!isModalClose(err)) {
     throw err;
+  } else {
+    return null;
   }
 }
 

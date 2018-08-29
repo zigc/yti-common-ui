@@ -2,9 +2,9 @@ import {
   ChangeDetectionStrategy, Component, ComponentFactoryResolver, Directive, ElementRef, HostBinding, Injector, Input, NgZone, OnDestroy, OnInit, Renderer2,
   ViewContainerRef
 } from '@angular/core';
-import { positionElements } from '@ng-bootstrap/ng-bootstrap/util/positioning';
+import { Subscription } from 'rxjs';
 import { PopupService } from '@ng-bootstrap/ng-bootstrap/util/popup';
-import { Subscription } from 'rxjs/Subscription';
+import { positionElements } from '@ng-bootstrap/ng-bootstrap/util/positioning';
 
 export type Placement = 'auto'
                       | 'top'

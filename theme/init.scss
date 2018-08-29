@@ -1,12 +1,14 @@
-// Modified from bootstrap 4.0.0-beta.2
+@import 'fontawesome';
+@import '~material-design-icons/iconfont/material-icons.css';
+
+// Modified from bootstrap 4.1.3 (bootstrap.scss) overriding mixins with our own
 
 @import "./variables";
 
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
-@import "mixins"; // override with our own
+@import "mixins";  // override with our own
 @import "~bootstrap/scss/root";
-@import "~bootstrap/scss/print";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
 @import "~bootstrap/scss/images";
@@ -37,5 +39,7 @@
 @import "~bootstrap/scss/popover";
 @import "~bootstrap/scss/carousel";
 @import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/print";
 
 @import "./main";
+

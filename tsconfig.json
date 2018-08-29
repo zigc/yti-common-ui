@@ -2,15 +2,14 @@
   "compileOnSave": false,
   "compilerOptions": {
     "declaration": false,
+    "module": "es2015",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
-    "types": [],
     "lib": [
-      "es2016",
-      "es2017.object",
-      "dom.iterable"
+      "es2017",
+      "dom"
     ],
     "noImplicitAny": true,
     "noFallthroughCasesInSwitch": true,

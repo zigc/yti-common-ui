@@ -3,7 +3,11 @@ import { NgbPanel } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-accordion-chevron',
-  template: `<span [id]="id" class="fa" [class.fa-angle-down]="open" [class.fa-angle-right]="!open"></span>`
+  template: `<span [id]="id" 
+                   style="font-size: large" 
+                   class="fa" 
+                   [class.fa-angle-down]="open" 
+                   [class.fa-angle-right]="!open"></span>`
 })
 export class AccordionChevronComponent {
 

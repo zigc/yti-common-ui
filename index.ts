@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {TranslateModule} from 'ng2-translate';
+import {TranslateModule} from '@ngx-translate/core';
 import {BreadcrumbComponent} from './components/breadcrumb.component';
 import {FooterComponent} from './components/footer.component';
 import {BackButtonComponent} from './components/back-button.component';
@@ -22,9 +22,10 @@ import {PopoverCloseComponent} from './components/popover-close.component';
 import {HighlightPipe} from './pipes/highlight.pipe';
 import {AccordionChevronComponent} from './components/accordion-chevron.component';
 import {KeysPipe} from './pipes/keys.pipe';
-import {NotificationDirective, NotificationWindowComponent} from "./components/notification.component";
+import {NotificationDirective, NotificationWindowComponent} from './components/notification.component';
 import {RequiredSymbolComponent} from './components/required-symbol.component';
 import {InformationSymbolComponent} from './components/information-symbol.component';
+import {StatusComponent} from "./components/status.component";
 
 declare var require: any;
 
@@ -53,7 +54,8 @@ const components = [
   NotificationDirective,
   NotificationWindowComponent,
   RequiredSymbolComponent,
-  InformationSymbolComponent
+  InformationSymbolComponent,
+  StatusComponent
 ];
 
 @NgModule({
