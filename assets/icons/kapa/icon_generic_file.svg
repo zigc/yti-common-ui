@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="36px" viewBox="0 0 30 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons / File / Generic File</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0,1.99970728 C0,0.895299444 0.898212381,0 1.99079514,0 L20,0 L30,10 L30,34.0029953 C30,35.1059106 29.1021596,36 28.008383,36 L1.99161703,36 C0.891677316,36 0,35.1101074 0,34.0002927 L0,1.99970728 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons-/-File-/-Generic-File">
+            <g id="PDF-icon">
+                <g id="Rectangle">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#EDEEEF" xlink:href="#path-1"></use>
+                    <rect mask="url(#mask-2)" x="0" y="33" width="30" height="3"></rect>
+                </g>
+                <path d="M20,0 L20,8.00038502 C20,9.10474188 20.8874333,10 21.999615,10 L30,10 L20,0 Z" id="Path-9-Copy" fill="#C9CDCF"></path>
+            </g>
+            <rect id="Rectangle-16" fill="#A5ACB0" x="4" y="13" width="22" height="2" rx="1"></rect>
+            <rect id="Rectangle-16-Copy-4" fill="#A5ACB0" x="4" y="8" width="12" height="2" rx="1"></rect>
+            <rect id="Rectangle-16-Copy" fill="#A5ACB0" x="4" y="18" width="22" height="2" rx="1"></rect>
+            <rect id="Rectangle-16-Copy-2" fill="#A5ACB0" x="4" y="23" width="22" height="2" rx="1"></rect>
+            <rect id="Rectangle-16-Copy-3" fill="#A5ACB0" x="4" y="28" width="22" height="2" rx="1"></rect>
+        </g>
+    </g>
+</svg>

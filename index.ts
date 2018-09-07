@@ -26,6 +26,7 @@ import {NotificationDirective, NotificationWindowComponent} from './components/n
 import {RequiredSymbolComponent} from './components/required-symbol.component';
 import {InformationSymbolComponent} from './components/information-symbol.component';
 import {StatusComponent} from "./components/status.component";
+import {IconComponent} from "./components/icon.component";
 
 declare var require: any;
 
@@ -55,7 +56,8 @@ const components = [
   NotificationWindowComponent,
   RequiredSymbolComponent,
   InformationSymbolComponent,
-  StatusComponent
+  StatusComponent,
+  IconComponent
 ];
 
 @NgModule({
