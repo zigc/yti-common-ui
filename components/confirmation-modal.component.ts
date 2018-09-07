@@ -7,11 +7,11 @@ export class ConfirmationModalService {
   constructor(private modalService: NgbModal) {
   }
 
-  open(title: string, body: string): Promise<any> {
+  open(title: string, ...bodyParagraphs: string[]): Promise<any> {
     const modalRef = this.modalService.open(ConfirmationModalComponent, { size: 'sm' });
     const instance = modalRef.componentInstance as ConfirmationModalComponent;
     instance.title = title;
-    instance.body = body;
+    instance.bodyParagraphs = bodyParagraphs;
     return modalRef.result;
   }
 
@@ -37,7 +37,7 @@ export class ConfirmationModalService {
     <div class="modal-body">
       <div class="row">
         <div class="col-md-12">
-          <p>{{body | translate}}</p>
+          <p *ngFor="let paragraph of bodyParagraphs">{{paragraph | translate}}</p>
         </div>
       </div>
     </div>
@@ -50,7 +50,7 @@ export class ConfirmationModalService {
 export class ConfirmationModalComponent {
 
   @Input() title: string;
-  @Input() body: string;
+  @Input() bodyParagraphs: string[];
 
   constructor(private modal: NgbActiveModal) {
   }
