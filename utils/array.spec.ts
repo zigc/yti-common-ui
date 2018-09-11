@@ -1,15 +1,15 @@
 import {
-  arraysAreEqual, firstMatching, contains, containsAny, containsAll, anyMatching, allMatching, resetWith,
+  arraysAreEqual, firstMatching, firstMatchingValue, contains, containsAny, containsAll, anyMatching, allMatching, resetWith,
   swapElements, moveElement, remove, flatten, removeMatching, groupBy
 } from './array';
 
 describe('First matching', () => {
   it('first of both matching elements', () => {
-    expect(firstMatching(['a', 'b', 'c', 'd', 'e', 'f'], ['c', 'f'])).toBe('c');
+    expect(firstMatchingValue(['a', 'b', 'c', 'd', 'e', 'f'], ['c', 'f'])).toBe('c');
   });
 
   it('non matching does not match', () => {
-    expect(firstMatching(['a', 'b', 'c', 'd', 'e', 'f'], ['x', 'f'])).toBe('f');
+    expect(firstMatchingValue(['a', 'b', 'c', 'd', 'e', 'f'], ['x', 'f'])).toBe('f');
   });
 });
 
