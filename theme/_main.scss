@@ -4,7 +4,18 @@
 $web-font-path: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,900italic,900,700italic,700,600italic,600,400italic,300italic,300,200italic' !default;
 @import url($web-font-path);
 
-// Search results ==============================================================
+// Search ==============================================================
+
+.search-label {
+  font-weight: bolder;
+  font-size: 0.86rem;
+  padding-bottom: 0.55rem;
+
+  &.search-label-inline {
+    padding-bottom: 0px;
+    padding-right: 0.55rem;
+  }
+}
 
 .search-results {
 
@@ -536,13 +547,53 @@ label,
 }
 
 .badge {
-  padding-bottom: .3em;
+  font-family: $font-family-sans-semibold;
+  font-size: 0.85rem;
+  font-weight: $badge-font-weight;
+  border-radius: 2px;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  color: white;
 
-  &-warning,
+  & ~ & {
+    margin-left: .66667em;
+  }
+
+  &.delete-item {
+    font-family: $font-family-sans-serif;
+    font-size: 100%;
+    border-radius: 10px;
+    padding: 0 2px;
+    color: $gray-700;
+    background-color: $gray-300;
+  }
+
+  &-primary {
+    background-color: $primary;
+  }
+  &-secondary {
+    background-color: $gray;
+  }
+  &-success {
+    background-color: $success;
+  }
+  &-danger {
+    background-color: $danger;
+  }
+  &-warning {
+    background-color: $warning;
+  }
   &-info {
-    color: $white;
+    background-color: $info;
+  }
+  &-light {
+    color: $black;
+    background-color: $light-blue-background;
+  }
+  &-dark {
+    background-color: $dark;
   }
 }
+
 
 // Progress bars ===============================================================
 
@@ -555,3 +606,24 @@ label,
 }
 
 // Containers ==================================================================
+
+// Lists =======================================================================
+
+ul.dot-separated-list {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+
+  li {
+    display: inline-block;
+    color: $gray-k40;
+    font-size: 0.75rem;
+    line-height: 0.9375rem;
+  }
+
+  li:not(:empty) ~ li:not(:empty):before {
+    content: "·";
+    padding-left: .66667em;
+    padding-right: .66667em
+  }
+}
