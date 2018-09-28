@@ -1,10 +1,10 @@
 import {Component, Input} from '@angular/core';
-import {getVocabularyTypeMaterialIcon, getDataModelingMaterialIcon, getGroupSvgIcon, getUiMaterialIcon} from '../utils/icons';
+import {getVocabularyTypeMaterialIcon, getDataModelingMaterialIcon, getInformationDomainSvgIcon, getUiMaterialIcon} from '../utils/icons';
 
 export enum IconCategory {
   VocabularyType = "VOCABULARY_TYPE",
   DataModeling = "DATA_MODELING",
-  Group = "GROUP",
+  InformationDomain = "INFORMATION_DOMAIN",
   UI = "UI"
 }
 
@@ -18,7 +18,7 @@ export enum IconCategory {
     <ng-container [ngSwitch]="category">
       <i *ngSwitchCase="CategoryType.VocabularyType" class="yti-icon material-icons">{{vocabularyTypeIconName(id)}}</i>
       <i *ngSwitchCase="CategoryType.DataModeling" class="yti-icon">{{dataModelingIconName(id)}}</i>
-      <img *ngSwitchCase="CategoryType.Group" class="yti-icon" [src]="groupIconSrc(id)">
+      <img *ngSwitchCase="CategoryType.InformationDomain" class="yti-icon" [src]="informationDomainIconSrc(id)">
       <i *ngSwitchCase="CategoryType.UI" class="yti-icon">{{uiIconName(id)}}</i>
       <i *ngSwitchDefault class="material-icons">warning</i>
     </ng-container>
@@ -34,8 +34,8 @@ export class IconComponent {
   dataModelingIconName(id: string): string {
     return getDataModelingMaterialIcon(id);
   }
-  groupIconSrc(id: string): any {
-    return getGroupSvgIcon(id);
+  informationDomainIconSrc(id: string): any {
+    return getInformationDomainSvgIcon(id);
   }
   uiIconName(id: string): string {
     return getUiMaterialIcon(id);

@@ -6,7 +6,7 @@ const vocabularyTypeMaterialIcons: { [typeId: string]: string } = {
   'TerminologicalVocabulary': 'chat_bubble'
 };
 
-const groupSvgIcons: { [notation: string]: any } = {
+const informationDomainSvgIcons: { [notation: string]: any } = {
   'P1': require('../assets/icons/kapa/icon_asuminen.svg'), // Asuminen
   'P2': require('../assets/icons/kapa/icon_kerrostalo.svg'), // Rakennettu ympäristö
   'P3': require('../assets/icons/kapa/icon_perhe.svg'), // Perheiden palvelut
@@ -65,15 +65,27 @@ export function getVocabularyTypeMaterialIcon(typeId: string): string {
 }
 
 /**
- * Get svg icon for group (or classification). Use with
+ * Get svg icon for information domain (previously known as classification or group). Use with
  * ```
  * <img [src]=ICON>
  * ```
+ * @param domainId For example 'P8'.
+ */
+export function getInformationDomainSvgIcon(domainId: string): any {
+  const icon: any = informationDomainSvgIcons[domainId];
+  return icon || warningSvgIcon;
+}
+
+/**
+ * Get svg icon for information domain (previously known as classification or group). Use with
+ * ```
+ * <img [src]=ICON>
+ * ```
+ * @deprecated Use getInformationDomainSvgIcon instead
  * @param groupId For example 'P8'.
  */
 export function getGroupSvgIcon(groupId: string): any {
-  const icon: any = groupSvgIcons[groupId];
-  return icon || warningSvgIcon;
+  return getInformationDomainSvgIcon(groupId);
 }
 
 /**
@@ -81,7 +93,7 @@ export function getGroupSvgIcon(groupId: string): any {
  * ```
  * <i class="material-icons">NAME</i>
  * ```
- * @param groupId For example 'attribute'.
+ * @param type For example 'attribute'.
  */
 export function getDataModelingMaterialIcon(type: string): string {
   const icon: string = dataModelingMaterialIcons[type];
@@ -93,7 +105,7 @@ export function getDataModelingMaterialIcon(type: string): string {
  * ```
  * <i class="material-icons">NAME</i>
  * ```
- * @param groupId For example 'dragAndDrop'.
+ * @param action For example 'dragAndDrop'.
  */
 export function getUiMaterialIcon(action: string): string {
   const icon: string = uiMaterialIcons[action];
