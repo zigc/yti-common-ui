@@ -1,9 +1,11 @@
+export type MaterialIconDef = { name: string, colorClass: string };
 
 const warningSvgIcon = require('../assets/icons/material/ic_warning_24px.svg');
+const warningMaterialIcon: MaterialIconDef = {name: 'warning', colorClass: 'icon-danger'};
 
-const vocabularyTypeMaterialIcons: { [typeId: string]: string } = {
-  'Vocabulary': 'chat_bubble_outline',
-  'TerminologicalVocabulary': 'chat_bubble'
+const vocabularyTypeMaterialIcons: { [typeId: string]: MaterialIconDef|undefined } = {
+  'Vocabulary': { name: 'chat_bubble_outline', colorClass: 'icon-orange' },
+  'TerminologicalVocabulary': { name: 'chat_bubble', colorClass: 'icon-orange' }
 };
 
 const informationDomainSvgIcons: { [notation: string]: any } = {
@@ -36,32 +38,32 @@ const informationDomainSvgIcons: { [notation: string]: any } = {
   'P27': require('../assets/icons/kapa/icon_liikunta.svg') // Liikunta ja ulkoilu
 };
 
-const dataModelingMaterialIcons: { [type: string]: string } = {
-  'library': 'view_column', // Tietokomponenttikirjasto
-  'profile': 'view_quilt', // Soveltamisprofiili
-  'class': 'web_asset', // Luokka
-  'shape': 'web', // Tarkennettu luokka
-  'attribute': 'text_format', // Attribuutti
-  'association': 'low_priority' // Assosiaatio
+const dataModelingMaterialIcons: { [type: string]: MaterialIconDef|undefined } = {
+  'library': { name: 'view_column', colorClass: 'icon-brand' }, // Tietokomponenttikirjasto
+  'profile': { name: 'view_quilt', colorClass: 'icon-orange' }, // Soveltamisprofiili
+  'class': { name: 'web_asset', colorClass: 'icon-blend' }, // Luokka
+  'shape': { name: 'web', colorClass: 'icon-blend' }, // Tarkennettu luokka
+  'attribute': { name: 'text_format', colorClass: 'icon-blend' }, // Attribuutti
+  'association': { name: 'low_priority', colorClass: 'icon-blend' } // Assosiaatio
 };
 
-const uiMaterialIcons: { [action: string]: string } = {
-  'delete': 'delete_forever',
-  'dragAndDrop': 'import_export',
-  'closeModal': 'close',
-  'search': 'search'
+const uiMaterialIcons: { [action: string]: MaterialIconDef|undefined } = {
+  'delete': { name: 'delete_forever', colorClass: 'icon-blend' },
+  'dragAndDrop': { name: 'import_export', colorClass: 'icon-blend' },
+  'closeModal': { name: 'close', colorClass: 'icon-blend' },
+  'search': { name: 'search', colorClass: 'icon-blend' }
 };
 
 /**
  * Get material icon name for vocabulary types. Use with
  * ```
- * <i class="material-icons">NAME</i>
+ * <i class="material-icons {{colorClass}}">{{name}}</i>
  * ```
  * @param typeId 'TerminologicalVocabulary' or 'Vocabulary'
  */
-export function getVocabularyTypeMaterialIcon(typeId: string): string {
-  const icon: string = vocabularyTypeMaterialIcons[typeId];
-  return icon || 'warning';
+export function getVocabularyTypeMaterialIcon(typeId: string): MaterialIconDef {
+  const icon: MaterialIconDef|undefined = vocabularyTypeMaterialIcons[typeId];
+  return icon || warningMaterialIcon;
 }
 
 /**
@@ -77,37 +79,25 @@ export function getInformationDomainSvgIcon(domainId: string): any {
 }
 
 /**
- * Get svg icon for information domain (previously known as classification or group). Use with
- * ```
- * <img [src]=ICON>
- * ```
- * @deprecated Use getInformationDomainSvgIcon instead
- * @param groupId For example 'P8'.
- */
-export function getGroupSvgIcon(groupId: string): any {
-  return getInformationDomainSvgIcon(groupId);
-}
-
-/**
  * Get material icon name for various data modeling terms. Use with
  * ```
- * <i class="material-icons">NAME</i>
+ * <i class="material-icons {{colorClass}}">{{name}}</i>
  * ```
  * @param type For example 'attribute'.
  */
-export function getDataModelingMaterialIcon(type: string): string {
-  const icon: string = dataModelingMaterialIcons[type];
-  return icon || 'warning';
+export function getDataModelingMaterialIcon(type: string): MaterialIconDef {
+  const icon: MaterialIconDef|undefined = dataModelingMaterialIcons[type];
+  return icon || warningMaterialIcon;
 }
 
 /**
  * Get material icon name for various ui actions. Use with
  * ```
- * <i class="material-icons">NAME</i>
+ * <i class="material-icons {{colorClass}}">{{name}}</i>
  * ```
  * @param action For example 'dragAndDrop'.
  */
-export function getUiMaterialIcon(action: string): string {
-  const icon: string = uiMaterialIcons[action];
-  return icon || 'warning';
+export function getUiMaterialIcon(action: string): MaterialIconDef {
+  const icon: MaterialIconDef|undefined = uiMaterialIcons[action];
+  return icon || warningMaterialIcon;
 }
