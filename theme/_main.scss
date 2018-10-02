@@ -634,30 +634,32 @@ ul.dot-separated-list {
 
 // Icons =======================================================================
 
-i.material-icons .icon-blend {
-  // intentionally left empty
-}
+i.material-icons {
+  &.icon-blend {
+    // intentionally left empty
+  }
 
-i.material-icons .icon-brand {
-  color: $blue;
-}
+  &.icon-brand {
+    color: $blue;
+  }
 
-i.material-icons .icon-blue-link {
-  color: $blue-link;
-}
+  &.icon-blue-link {
+    color: $blue-link;
+  }
 
-i.material-icons .icon-orange {
-  color: $orange;
-}
+  &.icon-orange {
+    color: $orange;
+  }
 
-i.material-icons .icon-gray {
-  color: $gray;
-}
+  &.icon-gray {
+    color: $gray;
+  }
 
-i.material-icons .icon-gray-k20 {
-  color: $gray-k20;
-}
+  &.icon-gray-k20 {
+    color: $gray-k20;
+  }
 
-i.material-icons .icon-danger {
-  color: $danger;
+  &.icon-danger {
+    color: $danger;
+  }
 }
