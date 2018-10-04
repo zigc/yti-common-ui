@@ -4,7 +4,7 @@ const warningSvgIcon = require('../assets/icons/material/ic_warning_24px.svg');
 const warningMaterialIcon: MaterialIconDef = {name: 'warning', colorClass: 'icon-danger'};
 
 const vocabularyTypeMaterialIcons: { [typeId: string]: MaterialIconDef|undefined } = {
-  'Vocabulary': { name: 'chat_bubble_outline', colorClass: 'icon-orange' },
+  'Vocabulary': { name: 'chat_bubble_outline', colorClass: 'icon-danger' },
   'TerminologicalVocabulary': { name: 'chat_bubble', colorClass: 'icon-orange' }
 };
 
