@@ -7,20 +7,21 @@ export class ConfirmationModalService {
   constructor(private modalService: NgbModal) {
   }
 
-  open(title: string, ...bodyParagraphs: string[]): Promise<any> {
+  open(title: string, bodyTranslateParams?: Object, ...bodyParagraphs: string[] ): Promise<any> {
     const modalRef = this.modalService.open(ConfirmationModalComponent, { size: 'sm' });
     const instance = modalRef.componentInstance as ConfirmationModalComponent;
     instance.title = title;
     instance.bodyParagraphs = bodyParagraphs;
+    instance.bodyTranslateParams = bodyTranslateParams;
     return modalRef.result;
   }
 
   openEditInProgress() {
-    return this.open('Edit in progress', 'Are you sure that you want to continue? By continuing unsaved changes will be lost.');
+    return this.open('Edit in progress', undefined, 'Are you sure that you want to continue? By continuing unsaved changes will be lost.');
   }
 
   openModalClose() {
-    return this.open('Modals are open', 'Are you sure that you want to continue? By continuing all modals will be closed.');
+    return this.open('Modals are open', undefined, 'Are you sure that you want to continue? By continuing all modals will be closed.');
   }
 }
 
@@ -31,13 +32,13 @@ export class ConfirmationModalService {
     <div class="modal-header modal-header-warning">
       <h4 class="modal-title">
         <a><i id="close_confirmation_modal_link" class="fa fa-times" (click)="cancel()"></i></a>
-        <span>{{title | translate}}</span>
+        <span translate>{{title}}</span>
       </h4>
     </div>
     <div class="modal-body">
       <div class="row">
         <div class="col-md-12">
-          <p *ngFor="let paragraph of bodyParagraphs">{{paragraph | translate}}</p>
+          <p *ngFor="let paragraph of bodyParagraphs" translate [translateParams]="bodyTranslateParams">{{paragraph }}</p>
         </div>
       </div>
     </div>
@@ -51,6 +52,7 @@ export class ConfirmationModalComponent {
 
   @Input() title: string;
   @Input() bodyParagraphs: string[];
+  @Input() bodyTranslateParams?: {};
 
   constructor(private modal: NgbActiveModal) {
   }
