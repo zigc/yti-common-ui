@@ -1,6 +1,11 @@
 // Tool front pages ============================================================
 
 .yti-tool-front-page {
+  $result-list-name-right-margin: 210px !default;
+  $result-list-description-right-margin: 210px !default;
+  $result-list-labels-right-margin: 210px !default;
+  $result-list-description-align: left !default;
+
   .tool-inner-title {
     display: none;
   }
@@ -74,7 +79,7 @@
         font-family: $font-family-sans-semibold;
         font-size: large;
         font-weight: 400;
-        width: calc(100% - 200px);
+        width: calc(100% - #{$result-list-name-right-margin});
         display: block;
         word-wrap: break-word;
         overflow-wrap: break-word;
@@ -82,7 +87,7 @@
 
       .description-container {
         position: relative;
-        width: calc(100% - 200px);
+        width: calc(100% - #{$result-list-description-right-margin});
         line-height: 1.5em;
         max-height: 7em;
         overflow: hidden;
@@ -93,6 +98,7 @@
           margin-top: 1em;
           margin-bottom: 0.3em;
           z-index: 1;
+          text-align: $result-list-description-align;
 
           &:empty {
             display: none;
@@ -136,13 +142,17 @@
       .information-domains {
         display: block;
         margin: 0.5rem 0 0.5rem 0;
+        width: calc(100% - #{$result-list-labels-right-margin});
+      }
+
+      ul.organizations {
+        width: calc(100% - #{$result-list-labels-right-margin});
       }
 
       .type {
         float: right;
         clear: right;
         color: $gray-k40;
-        margin-bottom: 0.5rem;
 
         i.material-icons {
           margin-right: 5px;
@@ -151,6 +161,7 @@
       }
 
       .status {
+        margin-top: 0.5rem;
         float: right;
         clear: right;
       }

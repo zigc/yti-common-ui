@@ -558,8 +558,8 @@ label,
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   color: white;
 
-  & ~ & {
-    margin-left: .66667em;
+  &:not(:last-of-type) {
+    margin-right: .66667em;
   }
 
   &.delete-item {
@@ -625,7 +625,7 @@ ul.dot-separated-list {
     line-height: 0.9375rem;
   }
 
-  li:not(:empty) ~ li:not(:empty):before {
+  li:not(:last-of-type):after {
     content: "·";
     padding-left: .66667em;
     padding-right: .66667em
