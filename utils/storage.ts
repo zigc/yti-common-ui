@@ -30,6 +30,7 @@ export function getFromLocalStorage(key: string, defaultValue: string): string {
 
 /**
  * Try (best effort) to store a value to localStorage.
+ *
  * @param key storage key
  * @param value string value (maybe empty) to store; if undefined/null then try to remove key
  * @return true if operation seems to have succeeded; false if it quite certainly failed
