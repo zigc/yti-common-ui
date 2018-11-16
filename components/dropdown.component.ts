@@ -66,7 +66,7 @@ export class DropdownComponent<T> implements OnChanges, ControlValueAccessor {
   }
 
   get selectionName() {
-    if (selection !== null) {
+    if (this.selection !== null) {
       return requireDefined(firstMatching(this.options, o => o.value === this.selection)).name();
     }
     return '';
