@@ -66,10 +66,14 @@ export class DropdownComponent<T> implements OnChanges, ControlValueAccessor {
   }
 
   get selectionName() {
-    if (this.selection !== null) {
-      return requireDefined(firstMatching(this.options, o => o.value === this.selection)).name();
+    // NOTE: There may be a valid match with nullish value. If there isn't, then let us consider that an initialization time issue.
+    const selectedOption = firstMatching(this.options, o => o.value === this.selection);
+    if (selectedOption) {
+      return selectedOption.name();
+    } else if (this.selection == null) {
+      return '';
     }
-    return '';
+    throw new Error('Dropdown options do not contain supposedly selected value.');
   }
 
   getIdIdentifier(option: Option<T>, index: number) {
