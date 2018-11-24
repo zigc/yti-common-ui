@@ -4,6 +4,21 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Copy value to clipboard"
+msgstr ""
+
+msgid "Copied to clipboard"
+msgstr ""
+
+msgid "value"
+msgstr ""
+
+msgid "{{title}}"
+msgstr ""
+
+msgid "{{paragraph }}"
+msgstr ""
+
 msgid "Yes"
 msgstr ""
 
@@ -57,7 +72,7 @@ msgstr ""
 msgid "MENU"
 msgstr ""
 
-msgid "RETIRED"
+msgid "INVALID"
 msgstr ""
 
 msgid "INCOMPLETE"
@@ -75,10 +90,10 @@ msgstr ""
 msgid "SUPERSEDED"
 msgstr ""
 
-msgid "DRAFT"
+msgid "RETIRED"
 msgstr ""
 
-msgid "INVALID"
+msgid "DRAFT"
 msgstr ""
 
 msgid "Edit in progress"
