@@ -1,32 +1,34 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {TranslateModule} from '@ngx-translate/core';
-import {BreadcrumbComponent} from './components/breadcrumb.component';
-import {FooterComponent} from './components/footer.component';
-import {BackButtonComponent} from './components/back-button.component';
-import {AjaxLoadingIndicatorComponent} from './components/ajax-loading-indicator.component';
-import {AjaxLoadingIndicatorSmallComponent} from './components/ajax-loading-indicator-small.component';
-import {ErrorModalComponent, ErrorModalService} from './components/error-modal.component';
-import {ConfirmationModalComponent, ConfirmationModalService} from './components/confirmation-modal.component';
-import {LoginModalComponent, LoginModalService} from './components/login-modal.component';
-import {MenuComponent} from './components/menu.component';
-import {DropdownComponent} from './components/dropdown.component';
-import {FilterDropdownComponent} from './components/filter-dropdown.component';
-import {StatusDropdownComponent} from './components/status-dropdown.component';
-import {UserService, AUTHENTICATED_USER_ENDPOINT} from './services/user.service';
-import {TranslateValuePipe, LOCALIZER} from './pipes/translate-value.pipe';
-import {PopoverCloseComponent} from './components/popover-close.component';
-import {HighlightPipe} from './pipes/highlight.pipe';
-import {AccordionChevronComponent} from './components/accordion-chevron.component';
-import {KeysPipe} from './pipes/keys.pipe';
-import {NotificationDirective, NotificationWindowComponent} from './components/notification.component';
-import {RequiredSymbolComponent} from './components/required-symbol.component';
-import {InformationSymbolComponent} from './components/information-symbol.component';
-import {StatusComponent} from "./components/status.component";
-import {IconComponent} from "./components/icon.component";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
+import { BreadcrumbComponent } from './components/breadcrumb.component';
+import { FooterComponent } from './components/footer.component';
+import { BackButtonComponent } from './components/back-button.component';
+import { AjaxLoadingIndicatorComponent } from './components/ajax-loading-indicator.component';
+import { AjaxLoadingIndicatorSmallComponent } from './components/ajax-loading-indicator-small.component';
+import { ErrorModalComponent, ErrorModalService } from './components/error-modal.component';
+import { ConfirmationModalComponent, ConfirmationModalService } from './components/confirmation-modal.component';
+import { LoginModalComponent, LoginModalService } from './components/login-modal.component';
+import { MenuComponent } from './components/menu.component';
+import { DropdownComponent } from './components/dropdown.component';
+import { FilterDropdownComponent } from './components/filter-dropdown.component';
+import { StatusDropdownComponent } from './components/status-dropdown.component';
+import { UserService, AUTHENTICATED_USER_ENDPOINT } from './services/user.service';
+import { TranslateValuePipe, LOCALIZER } from './pipes/translate-value.pipe';
+import { PopoverCloseComponent } from './components/popover-close.component';
+import { HighlightPipe } from './pipes/highlight.pipe';
+import { AccordionChevronComponent } from './components/accordion-chevron.component';
+import { KeysPipe } from './pipes/keys.pipe';
+import { NotificationDirective, NotificationWindowComponent } from './components/notification.component';
+import { RequiredSymbolComponent } from './components/required-symbol.component';
+import { InformationSymbolComponent } from './components/information-symbol.component';
+import { StatusComponent } from "./components/status.component";
+import { IconComponent } from "./components/icon.component";
+import { ClipboardComponent } from './components/clipboard';
+import { ClipboardModule } from 'ngx-clipboard';
 
 declare var require: any;
 
@@ -57,7 +59,8 @@ const components = [
   RequiredSymbolComponent,
   InformationSymbolComponent,
   StatusComponent,
-  IconComponent
+  IconComponent,
+  ClipboardComponent
 ];
 
 @NgModule({
@@ -75,7 +78,8 @@ const components = [
     ReactiveFormsModule,
     NgbModule,
     TranslateModule,
-    RouterModule
+    RouterModule,
+    ClipboardModule
   ],
   providers: [
     ErrorModalService,
