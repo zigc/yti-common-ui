@@ -8,12 +8,12 @@ export function asLocalizable(localizations: Localization[], ignoreConflicts = f
 
   for (const localization of normalizeAsArray(localizations)) {
     if (localization.lang) {
-
-      if (!ignoreConflicts && result.hasOwnProperty(localization.lang)) {
+      // NOTE: When ignoring conflicts keep the first value, not the last.
+      if (!result.hasOwnProperty(localization.lang)) {
+        result[localization.lang] = localization.value;
+      } else if (!ignoreConflicts) {
         throw new Error('Localization already defined for language: ' + localization.lang);
       }
-
-      result[localization.lang] = localization.value;
     }
   }
 
