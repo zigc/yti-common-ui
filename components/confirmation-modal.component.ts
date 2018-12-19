@@ -37,11 +37,8 @@ export class ConfirmationModalService {
     </div>
     <div class="modal-body">
       <div class="row">
-        <div class="col-md-12" *ngIf="bodyTranslateParams">
+        <div class="col-md-12">
           <p *ngFor="let paragraph of bodyParagraphs" translate [translateParams]="bodyTranslateParams">{{paragraph }}</p>
-        </div>
-        <div class="col-md-12" *ngIf="!bodyTranslateParams">
-          <p *ngFor="let paragraph of bodyParagraphs">{{paragraph }}</p>
         </div>
       </div>
     </div>
