@@ -16,6 +16,16 @@ export class ConfirmationModalService {
     return modalRef.result;
   }
 
+  openWithNonTranslatableContentAlsoPresent(title: string, nonTranslatableBodyParagraphs?: string[], bodyTranslateParams?: Object, ...bodyParagraphs: string[] ): Promise<any> {
+    const modalRef = this.modalService.open(ConfirmationModalComponent, { size: 'sm' });
+    const instance = modalRef.componentInstance as ConfirmationModalComponent;
+    instance.title = title;
+    instance.bodyParagraphs = bodyParagraphs;
+    instance.bodyTranslateParams = undefined;
+    instance.nonTranslatableBodyParagraphs = nonTranslatableBodyParagraphs;
+    return modalRef.result;
+  }
+
   openEditInProgress() {
     return this.open('Edit in progress', undefined, 'Are you sure that you want to continue? By continuing unsaved changes will be lost.');
   }
@@ -37,8 +47,11 @@ export class ConfirmationModalService {
     </div>
     <div class="modal-body">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" *ngIf="bodyParagraphs">
           <p *ngFor="let paragraph of bodyParagraphs" translate [translateParams]="bodyTranslateParams">{{paragraph }}</p>
+        </div>
+        <div class="col-md-12" *ngIf="nonTranslatableBodyParagraphs">
+          <p *ngFor="let paragraph of nonTranslatableBodyParagraphs">{{paragraph }}</p>
         </div>
       </div>
     </div>
@@ -53,6 +66,7 @@ export class ConfirmationModalComponent {
   @Input() title: string;
   @Input() bodyParagraphs: string[];
   @Input() bodyTranslateParams?: {};
+  @Input() nonTranslatableBodyParagraphs: string[]|undefined;
 
   constructor(private modal: NgbActiveModal) {
   }
