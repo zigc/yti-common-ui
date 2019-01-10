@@ -29,6 +29,7 @@ import { StatusComponent } from "./components/status.component";
 import { IconComponent } from "./components/icon.component";
 import { ClipboardComponent } from './components/clipboard';
 import { ClipboardModule } from 'ngx-clipboard';
+import { ExpandableTextComponent } from './components/expandable-text.component';
 
 declare var require: any;
 
@@ -45,6 +46,7 @@ const components = [
   ConfirmationModalComponent,
   DropdownComponent,
   ErrorModalComponent,
+  ExpandableTextComponent,
   FilterDropdownComponent,
   StatusDropdownComponent,
   FooterComponent,

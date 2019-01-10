@@ -1,0 +1,59 @@
+@import '../theme/variables';
+
+/* These (and their usages) are overridden in component. Left here in case ngStyle usage is removed. */
+$rows: 4;
+$lineHeight: 1.5em;
+
+.expandable-text-container {
+  position: relative;
+  line-height: $lineHeight;
+  max-height: $rows * $lineHeight;
+  overflow: hidden;
+
+  .expandable-text-content {
+    display: block;
+    position: relative;
+    margin: 0px;
+    z-index: 1;
+    text-align: left;
+  }
+
+  .expandable-text-limiter-container {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    min-height: $rows * $lineHeight;
+    width: 100%;
+  }
+
+  .expandable-text-limiter {
+    z-index: 2;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0));
+    position: absolute;
+    height: $lineHeight;
+    width: 100%;
+    top: ($rows - 1) * $lineHeight;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &.expand {
+    /* max-height value fit-content is not widely supported, none will do as a backup */
+    max-height: none;
+    max-height: fit-content;
+
+    .expandable-text-limiter-container {
+      min-height: 0px;
+    }
+
+    .expandable-text-limiter {
+      top: auto;
+      width: 2em;
+      height: 3px;
+      bottom: 0px;
+      left: calc(50% - 1em);
+      background: $black;
+      border-radius: 2px;
+    }
+  }
+}
