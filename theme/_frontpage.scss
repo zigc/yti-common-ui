@@ -85,6 +85,13 @@
         overflow-wrap: break-word;
       }
 
+      .description-component-container {
+        width: calc(100% - #{$result-list-description-right-margin});
+        margin-top: 1em;
+        margin-bottom: 0.3em;
+      }
+
+      /* TODO: REMOVE THIS AFTER ALL TOOLS HAVE BEEN UPDATED TO USE EXPANDABLE TEXT COMPONENT */
       .description-container {
         position: relative;
         width: calc(100% - #{$result-list-description-right-margin});
@@ -140,6 +147,7 @@
           }
         }
       }
+      /* TODO: REMOVE ABOVE AFTER ALL TOOLS HAVE BEEN UPDATED TO USE EXPANDABLE TEXT COMPONENT */
 
       .information-domains {
         display: block;
