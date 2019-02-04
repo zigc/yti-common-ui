@@ -1,0 +1,17 @@
+button.btn.btn-dropdown {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  div.selected_name {
+    max-width: 13rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 0 1 auto;
+  }
+
+  &::after {
+    display: block;
+    flex: 0 0 auto;
+  }
+}

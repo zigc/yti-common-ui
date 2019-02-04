@@ -15,6 +15,7 @@ export interface Option<T> {
 
 @Component({
   selector: 'app-dropdown',
+  styleUrls: ['./dropdown.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => DropdownComponent),
@@ -23,7 +24,7 @@ export interface Option<T> {
   template: `
     <div ngbDropdown *ngIf="initialized" [placement]="placement">
       <button [id]="'selected_' + id" class="btn btn-dropdown" ngbDropdownToggle>
-        <span>{{selectionName}}</span>
+        <div class="selected_name">{{selectionName}}</div>
       </button>
 
       <div ngbDropdownMenu>
