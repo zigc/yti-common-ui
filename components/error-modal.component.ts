@@ -5,6 +5,7 @@ export interface ErrorOptions {
   title: string;
   body: string;
   bodyParams?: {};
+  nonTranslatableMessage?: string;
   err?: any;
 }
 
@@ -28,6 +29,7 @@ export class ErrorModalService {
     instance.title = options.title;
     instance.body = options.body;
     instance.bodyParams = options.bodyParams;
+    instance.nonTranslatableMessage = options.nonTranslatableMessage;
     instance.error = options.err;
   }
 
@@ -55,6 +57,9 @@ export class ErrorModalService {
           <p translate [translateParams]="bodyParams">{{body}}</p>
           <pre *ngIf="error">{{error | json}}</pre>
         </div>
+        <div class="col-md-12" *ngIf="nonTranslatableMessage">
+          <p>{{nonTranslatableMessage }}</p>
+        </div>
       </div>
     </div>
     <div class="modal-footer">
@@ -67,6 +72,7 @@ export class ErrorModalComponent {
   @Input() title: string;
   @Input() body: string;
   @Input() bodyParams?: {};
+  @Input() nonTranslatableMessage: string|undefined;
   @Input() error?: any;
 
   constructor(private modal: NgbActiveModal) {
