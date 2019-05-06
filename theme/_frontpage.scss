@@ -14,6 +14,13 @@
     width: calc(100% - 200px);
   }
 
+  .extend-search-selections {
+    label {
+      font-size: inherit;
+      margin-bottom: 0;
+    }
+  }
+
   button.add-main-entity {
     margin-bottom: 30px;
   }
@@ -88,7 +95,9 @@
       .name {
         color: $blue-link;
         font-family: $font-family-sans-semibold;
-        font-size: large;
+        font-size: 1.15rem;
+        line-height: 1.725rem;
+        vertical-align: baseline;
         font-weight: 400;
         width: calc(100% - #{$result-list-name-right-margin});
         display: block;
@@ -100,65 +109,11 @@
         width: calc(100% - #{$result-list-description-right-margin});
         margin-top: 1em;
         margin-bottom: 0.3em;
-      }
 
-      /* TODO: REMOVE THIS AFTER ALL TOOLS HAVE BEEN UPDATED TO USE EXPANDABLE TEXT COMPONENT */
-      .description-container {
-        position: relative;
-        width: calc(100% - #{$result-list-description-right-margin});
-        line-height: 1.5em;
-        max-height: 7em;
-        overflow: hidden;
-
-        .description {
-          display: block;
-          position: relative;
-          margin-top: 1em;
-          margin-bottom: 0.3em;
-          z-index: 1;
-          text-align: $result-list-description-align;
-
-          &:empty {
-            display: none;
-          }
-        }
-
-        .limiter-container {
-          position: absolute;
-          top: 0px;
-          bottom: 0px;
-          min-height: 7em;
-          width: 100%;
-        }
-
-        .description-limiter {
-          z-index: 2;
-          background: linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0));
-          position: absolute;
-          height: 1.5em;
-          width: 100%;
-          top: 5.5em;
-          text-align: center;
-          cursor: pointer;
-        }
-
-        &.expand {
-          /* max-height value fit-content is not widely supported, none will do as a backup */
-          max-height: none;
-          max-height: fit-content;
-
-          .description-limiter {
-            top: auto;
-            width: 2em;
-            height: 3px;
-            bottom: 0px;
-            left: calc(50% - 1em);
-            background: $black;
-            border-radius: 2px;
-          }
+        &.nrr {
+          width: auto;
         }
       }
-      /* TODO: REMOVE ABOVE AFTER ALL TOOLS HAVE BEEN UPDATED TO USE EXPANDABLE TEXT COMPONENT */
 
       .information-domains {
         display: block;
@@ -174,6 +129,8 @@
         float: right;
         clear: right;
         color: $gray-k40;
+        line-height: 1.725rem;
+        vertical-align: baseline;
 
         i.material-icons {
           margin-right: 5px;
@@ -182,9 +139,66 @@
       }
 
       .status {
-        margin-top: 0.5rem;
+        margin-top: 0.25rem;
         float: right;
         clear: right;
+      }
+
+      .meta-information-row {
+        width: calc(100% - #{$result-list-labels-right-margin});
+
+        .organizations {
+          display: inline-block;
+          width: auto;
+          margin: 0.25rem 1rem 0.1rem 0;
+
+          &.dot-separated-list li {
+            font-size: 0.85rem;
+            color: $gray-900;
+          }
+        }
+
+        .information-domains {
+          display: inline-block;
+          width: auto;
+          margin: 0.1rem 0 0 0;
+        }
+      }
+
+      .deep-results {
+        margin-top: 1em;
+
+        .deep-results-title {
+          font-weight: 600;
+          font-size: 0.86rem;
+        }
+
+        .deep-results-section {
+          margin-left: 1rem;
+
+          .deep-results-section-title {
+            font-weight: 600;
+            font-size: 0.86rem;
+          }
+
+          .deep-results-section-content {
+            a.deep-results-hit {
+              display: inline-block;
+              margin-right: 1rem;
+              max-width: 200px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              vertical-align: middle;
+            }
+
+            .deep-results-show-all {
+              display: inline-block;
+              font-style: italic;
+              vertical-align: middle;
+            }
+          }
+        }
       }
     }
   }
