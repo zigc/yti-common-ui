@@ -13,4 +13,5 @@ export interface LocalizableArray { [language: string]: string[]; }
 export interface Localizer {
   translateLanguage$: Observable<Language>;
   translate(localizable: Localizable, useUILanguage?: boolean): string;
+  translateToGivenLanguage(localizable: Localizable, languageToUse: string|null): string;
 }

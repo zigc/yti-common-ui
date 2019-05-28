@@ -17,14 +17,22 @@ export class TranslateValuePipe implements PipeTransform, OnDestroy {
   constructor(@Inject(LOCALIZER) private localizer: Localizer) {
   }
 
-  transform(value: Localizable, useUILanguage = false): string {
+  transform(value: Localizable, useUILanguage = false, useThisSpecificLanguage?: string): string {
 
     this.cleanSubscription();
-    this.localization = this.localizer.translate(value, useUILanguage);
+    if (useThisSpecificLanguage) {
+      this.localization = this.localizer.translateToGivenLanguage(value, useThisSpecificLanguage);
 
-    this.languageSubscription = this.localizer.translateLanguage$.subscribe(() => {
+      this.languageSubscription = this.localizer.translateLanguage$.subscribe(() => {
+        this.localization = this.localizer.translateToGivenLanguage(value, useThisSpecificLanguage);
+      });
+    } else {
       this.localization = this.localizer.translate(value, useUILanguage);
-    });
+
+      this.languageSubscription = this.localizer.translateLanguage$.subscribe(() => {
+        this.localization = this.localizer.translate(value, useUILanguage);
+      });
+    }
 
     return this.localization;
   }
