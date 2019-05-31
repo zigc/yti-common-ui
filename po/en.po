@@ -94,9 +94,6 @@ msgstr "Incomplete"
 msgid "SUGGESTED"
 msgstr "Suggested"
 
-msgid "SUBMITTED"
-msgstr "Submitted"
-
 msgid "VALID"
 msgstr "Valid"
 

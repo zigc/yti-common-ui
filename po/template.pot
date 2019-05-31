@@ -81,9 +81,6 @@ msgstr ""
 msgid "SUGGESTED"
 msgstr ""
 
-msgid "SUBMITTED"
-msgstr ""
-
 msgid "VALID"
 msgstr ""
 

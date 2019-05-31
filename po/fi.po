@@ -94,9 +94,6 @@ msgstr "Keskeneräinen"
 msgid "SUGGESTED"
 msgstr "Ehdotus"
 
-msgid "SUBMITTED"
-msgstr "Odottaa hyväksyntää"
-
 msgid "VALID"
 msgstr "Voimassa oleva"
 

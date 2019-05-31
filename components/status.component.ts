@@ -6,7 +6,6 @@ import { Status } from '../entities/status';
   styleUrls: ['./status.component.scss'],
   template: `
     <span [class.bg-danger]="danger"
-          [class.bg-pending]="submitted"
           [class.bg-warning]="warning"
           [class.bg-gray]="gray"
           [class.bg-white]="white"
@@ -23,10 +22,6 @@ export class StatusComponent {
 
   get gray() {
     return this.status === 'DRAFT' as Status || this.status === 'SUGGESTED' as Status;
-  }
-
-  get submitted() {
-    return this.status === 'SUBMITTED' as Status;
   }
 
   get danger() {
