@@ -1,14 +1,13 @@
-import { Component, forwardRef, Input, OnChanges } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { firstMatching } from '../utils/array';
-import { requireDefined } from '../utils/object';
-import { Placement as NgbPlacement } from '@ng-bootstrap/ng-bootstrap';
+import {Component, forwardRef, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {firstMatching} from '../utils/array';
+import {Placement as NgbPlacement} from '@ng-bootstrap/ng-bootstrap';
 
 export type Placement = NgbPlacement;
 export type Options<T> = Option<T>[];
 
 export interface Option<T> {
-  value: T|null;  
+  value: T | null;
   name: () => string;
   idIdentifier?: () => string;
 }
@@ -36,7 +35,7 @@ export interface Option<T> {
           {{option.name()}}
         </button>
       </div>
-    </div>  
+    </div>
   `
 })
 export class DropdownComponent<T> implements OnChanges, ControlValueAccessor {
@@ -44,17 +43,27 @@ export class DropdownComponent<T> implements OnChanges, ControlValueAccessor {
   @Input() id: string;
   @Input() options: Options<T>;
   @Input() showNullOption = false;
-  @Input() placement: Placement = 'bottom-left'; 
+  @Input() placement: Placement = 'bottom-left';
 
-  selection: T|null;
+  selection: T | null;
   initialized = false;
 
-  private propagateChange: (fn: any) => void = () => {};
-  private propagateTouched: (fn: any) => void = () => {};
+  private propagateChange: (fn: any) => void = () => {
+  }
+  private propagateTouched: (fn: any) => void = () => {
+  }
 
-  ngOnChanges() {
-    if (this.options) {
+  ngOnChanges(changes: SimpleChanges) {
+    if (!this.initialized && this.options) {
       this.initialized = true;
+    }
+
+    // Reset the selection if options have changed and no longer contain the (previously) selected value, and if we can select something else
+    if (this.selection && changes.options && this.options && this.options.length) {
+      const currentlySelected = firstMatching(this.options, o => o.value === this.selection);
+      if (!currentlySelected) {
+        this.select(this.options[0]);
+      }
     }
   }
 
