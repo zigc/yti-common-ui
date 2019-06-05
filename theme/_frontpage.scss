@@ -175,6 +175,10 @@
 
         .deep-results-section {
           margin-left: 1rem;
+          margin-bottom: 0.2rem;
+          &:last-child {
+            margin-bottom: 0;
+          }
 
           .deep-results-section-title {
             font-weight: 600;
@@ -182,8 +186,11 @@
           }
 
           .deep-results-section-content {
+            font-size: 0rem;
+
             a.deep-results-hit {
               display: inline-block;
+              font-size: 0.9375rem;
               margin-right: 1rem;
               max-width: 200px;
               overflow: hidden;
@@ -194,6 +201,7 @@
 
             .deep-results-show-all {
               display: inline-block;
+              font-size: 0.9375rem;
               font-style: italic;
               vertical-align: middle;
             }
