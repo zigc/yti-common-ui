@@ -27,7 +27,7 @@ export type Placement = NgbPlacement;
           {{option | translate}}
         </button>
       </div>
-    </div>  
+    </div>
   `
 })
 export class StatusDropdownComponent implements ControlValueAccessor {
@@ -35,14 +35,40 @@ export class StatusDropdownComponent implements ControlValueAccessor {
   @Input() id: string;
   @Input() placement: Placement = 'bottom-left';
   @Input() restrict = false;
+  @Input() isSuperUser = false;
 
   selection: Status;
 
   private propagateChange: (fn: any) => void = () => {};
   private propagateTouched: (fn: any) => void = () => {};
 
+  allowedTargetStatusesFrom_INCOMPLETE = ['DRAFT'] as Status[];
+  allowedTargetStatusesFrom_DRAFT = ['INCOMPLETE', 'VALID'] as Status[];
+  allowedTargetStatusesFrom_VALID = ['RETIRED', 'INVALID'] as Status[];
+  allowedTargetStatusesFrom_RETIRED = ['VALID', 'INVALID'] as Status[];
+  allowedTargetStatusesFrom_INVALID = ['VALID', 'RETIRED'] as Status[];
+
   get options(): Status[] {
-    return !this.restrict ? selectableStatuses : restrictedStatuses;
+
+    if (this.restrict) {
+      return restrictedStatuses;
+    } else if (!this.isSuperUser) {
+      if (this.selection === 'INCOMPLETE') {
+        return this.allowedTargetStatusesFrom_INCOMPLETE;
+      } else if (this.selection === 'DRAFT') {
+        return this.allowedTargetStatusesFrom_DRAFT;
+      } else if (this.selection === 'VALID') {
+        return this.allowedTargetStatusesFrom_VALID;
+      } else if (this.selection === 'RETIRED') {
+        return this.allowedTargetStatusesFrom_RETIRED;
+      } else if (this.selection === 'INVALID') {
+        return this.allowedTargetStatusesFrom_INVALID;
+      } else {
+        return selectableStatuses; // should never come here anymore
+      }
+    } else {
+      return selectableStatuses;
+    }
   }
 
   isSelected(option: Status) {
