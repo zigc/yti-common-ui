@@ -36,32 +36,33 @@ export class StatusDropdownComponent implements ControlValueAccessor {
   @Input() placement: Placement = 'bottom-left';
   @Input() restrict = false;
   @Input() isSuperUser = false;
+  @Input() originalStatus: Status|undefined;
 
   selection: Status;
 
   private propagateChange: (fn: any) => void = () => {};
   private propagateTouched: (fn: any) => void = () => {};
 
-  allowedTargetStatusesFrom_INCOMPLETE = ['DRAFT'] as Status[];
-  allowedTargetStatusesFrom_DRAFT = ['INCOMPLETE', 'VALID'] as Status[];
-  allowedTargetStatusesFrom_VALID = ['RETIRED', 'INVALID'] as Status[];
-  allowedTargetStatusesFrom_RETIRED = ['VALID', 'INVALID'] as Status[];
-  allowedTargetStatusesFrom_INVALID = ['VALID', 'RETIRED'] as Status[];
+  allowedTargetStatusesFrom_INCOMPLETE = ['INCOMPLETE', 'DRAFT'] as Status[];
+  allowedTargetStatusesFrom_DRAFT = ['DRAFT', 'INCOMPLETE', 'VALID'] as Status[];
+  allowedTargetStatusesFrom_VALID = ['VALID', 'RETIRED', 'INVALID'] as Status[];
+  allowedTargetStatusesFrom_RETIRED = ['RETIRED', 'VALID', 'INVALID'] as Status[];
+  allowedTargetStatusesFrom_INVALID = ['INVALID', 'VALID', 'RETIRED'] as Status[];
 
   get options(): Status[] {
 
     if (this.restrict) {
       return restrictedStatuses;
-    } else if (!this.isSuperUser) {
-      if (this.selection === 'INCOMPLETE') {
+    } else if (!this.isSuperUser && this.originalStatus) {
+      if (this.originalStatus === 'INCOMPLETE') {
         return this.allowedTargetStatusesFrom_INCOMPLETE;
-      } else if (this.selection === 'DRAFT') {
+      } else if (this.originalStatus === 'DRAFT') {
         return this.allowedTargetStatusesFrom_DRAFT;
-      } else if (this.selection === 'VALID') {
+      } else if (this.originalStatus === 'VALID') {
         return this.allowedTargetStatusesFrom_VALID;
-      } else if (this.selection === 'RETIRED') {
+      } else if (this.originalStatus === 'RETIRED') {
         return this.allowedTargetStatusesFrom_RETIRED;
-      } else if (this.selection === 'INVALID') {
+      } else if (this.originalStatus === 'INVALID') {
         return this.allowedTargetStatusesFrom_INVALID;
       } else {
         return selectableStatuses; // should never come here anymore
