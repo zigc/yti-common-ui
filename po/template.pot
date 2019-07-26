@@ -111,3 +111,6 @@ msgstr ""
 
 msgid "Required"
 msgstr ""
+
+msgid "Content has been licensed with CC by 4.0 license."
+msgstr ""
