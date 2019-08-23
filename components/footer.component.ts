@@ -43,9 +43,6 @@ import { TranslateService } from '@ngx-translate/core';
               <a id="license_link" [href]="licenseLink" target="_blank" translate>Sourcecode is licensed under EUPL-1.2 license.</a>
             </li>
             <li *ngIf="showLicenseIcon" class="">
-              <a id="licence_icon_link" [href]="licenseIconLink" target="_blank">
-                <img class="link-image" [src]="licenseIcon" title="{{'Content has been licensed with CC by 4.0 license.' | translate}}" />
-              </a>
               <a id="licence_icon_text_link" [href]="licenseIconLink" target="_blank" translate>Content has been licensed with CC by 4.0 license.</a>
             </li>
           </ul>
@@ -73,11 +70,7 @@ export class FooterComponent {
   }
 
   get licenseIconLink() {
-    return 'https://creativecommons.org/licenses/by/4.0/';    
-  }
-
-  get licenseIcon() {
-    return require('../assets/icons/licenses/ccby40-icon-88x31.png');    
+    return 'https://creativecommons.org/licenses/by/4.0/';
   }
 
   get feedbackLink() {
