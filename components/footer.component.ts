@@ -61,12 +61,8 @@ export class FooterComponent {
   constructor(private translateService: TranslateService) {
   }
 
-  get language() {
-    return this.translateService.currentLang;
-  }
-
   get licenseLink() {
-    return 'https://eupl.eu/1.2/' + this.language + '/';
+    return 'https://ec.europa.eu/info/european-union-public-licence';
   }
 
   get licenseIconLink() {
