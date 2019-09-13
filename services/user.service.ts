@@ -9,7 +9,8 @@ export const AUTHENTICATED_USER_ENDPOINT = new InjectionToken<string>('authentic
 export type Role = 'ADMIN'
   | 'DATA_MODEL_EDITOR'
   | 'TERMINOLOGY_EDITOR'
-  | 'CODE_LIST_EDITOR';
+  | 'CODE_LIST_EDITOR'
+  | 'MEMBER';
 
 export type UUID = string;
 
