@@ -1,7 +1,7 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Placement as NgbPlacement } from '@ng-bootstrap/ng-bootstrap';
-import {Status, selectableStatuses, restrictedStatuses} from '../entities/status';
+import {Status, selectableStatuses, restrictedStatuses, creationTimeAllowedStatuses} from '../entities/status';
 
 export type Placement = NgbPlacement;
 
@@ -37,6 +37,7 @@ export class StatusDropdownComponent implements ControlValueAccessor {
   @Input() restrict = false;
   @Input() isSuperUser = false;
   @Input() originalStatus: Status|undefined;
+  @Input() allowOnlyCreationTimeStatuses = false;
 
   selection: Status;
 
@@ -51,6 +52,9 @@ export class StatusDropdownComponent implements ControlValueAccessor {
 
   get options(): Status[] {
 
+    if (this.allowOnlyCreationTimeStatuses) {
+      return creationTimeAllowedStatuses;
+    }
     if (this.restrict) {
       return restrictedStatuses;
     } else if (!this.isSuperUser && this.originalStatus) {
