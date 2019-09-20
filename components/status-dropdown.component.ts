@@ -52,7 +52,7 @@ export class StatusDropdownComponent implements ControlValueAccessor {
 
   get options(): Status[] {
 
-    if (this.allowOnlyCreationTimeStatuses) {
+    if (this.allowOnlyCreationTimeStatuses && !this.isSuperUser) {
       return creationTimeAllowedStatuses;
     }
     if (this.restrict) {
