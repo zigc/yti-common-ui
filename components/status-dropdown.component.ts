@@ -55,12 +55,12 @@ export class StatusDropdownComponent implements ControlValueAccessor {
     if (this.isSuperUser) {
       return selectableStatuses;
     }
-    if (this.allowOnlyCreationTimeStatuses && !this.isSuperUser) {
+    if (this.allowOnlyCreationTimeStatuses) {
       return creationTimeAllowedStatuses;
     }
     if (this.restrict) {
       return restrictedStatuses;
-    } else if (!this.isSuperUser && this.originalStatus) {
+    } else if (this.originalStatus) {
       if (this.originalStatus === 'INCOMPLETE') {
         return this.allowedTargetStatusesFrom_INCOMPLETE;
       } else if (this.originalStatus === 'DRAFT') {
