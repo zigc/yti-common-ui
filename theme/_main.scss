@@ -76,6 +76,42 @@ $web-font-path: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200
 
 // Modal =======================================================================
 
+// New style (2019/09) flex based modal which is always full height. This should replace full-height pixel math model-body stuff below.
+.modal.modal-full-height {
+  height: 100%;
+
+  .modal-dialog {
+    height: calc(100% - (#{$modal-dialog-margin} * 2));
+
+    @include media-breakpoint-up(sm) {
+      &.modal-dialog {
+        height: calc(100% - (#{$modal-dialog-margin-y-sm-up} * 2));
+      }
+    }
+
+    .modal-content {
+      height: 100%;
+      overflow: auto;
+
+      & > form {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .modal-header, .modal-footer {
+        flex: 0 0 auto;
+      }
+
+      .modal-body {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
 .modal-content {
   border: 1px solid $gray-700;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
