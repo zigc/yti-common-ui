@@ -10,6 +10,7 @@ export type FilterOptions<T> = Options<T>;
     <app-dropdown [id]="id"
                   [options]="options"
                   [showNullOption]="true"
+                  [placement]="placement"
                   [(ngModel)]="selection"></app-dropdown>
   `
 })
@@ -18,6 +19,7 @@ export class FilterDropdownComponent<T> {
   @Input() id: string;
   @Input() options: FilterOptions<T>;
   @Input() filterSubject: BehaviorSubject<T>;
+  @Input() placement: string;
 
   get selection() {
     return this.filterSubject.getValue();
