@@ -19,7 +19,7 @@ export class FilterDropdownComponent<T> {
   @Input() id: string;
   @Input() options: FilterOptions<T>;
   @Input() filterSubject: BehaviorSubject<T>;
-  @Input() placement: string;
+  @Input() placement = 'bottom-left';
 
   get selection() {
     return this.filterSubject.getValue();
