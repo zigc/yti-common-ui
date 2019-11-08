@@ -25,6 +25,7 @@ export class User {
   superuser: boolean;
   rolesInOrganizations: Map<UUID, Set<Role>>;
   organizationsInRole: Map<Role, Set<UUID>>;
+  hasToken: boolean;
 
   constructor(json: any) {
     this.email = json.email;
@@ -34,6 +35,7 @@ export class User {
     this.superuser = json.superuser;
     this.rolesInOrganizations = convertToMapSet<UUID, Role>(json.rolesInOrganizations);
     this.organizationsInRole = convertToMapSet<Role, UUID>(json.organizationsInRole);
+    this.hasToken = json.tokenCreatedAt != null && json.tokenInvalidationAt != null;
   }
 
   get name() {
