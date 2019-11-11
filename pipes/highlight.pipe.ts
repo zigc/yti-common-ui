@@ -1,5 +1,4 @@
-import { PipeTransform, Pipe } from '@angular/core';
-import { createSearchRegex } from '../utils/regex';
+import { Pipe, PipeTransform } from '@angular/core';
 
 /* FIXME: Pipe produces HTML output which has to be bound with innerHTML-attribute in the template.
           Malicious user input cannot be sanitized with this mechanism and it causes security problems.
@@ -8,15 +7,10 @@ import { createSearchRegex } from '../utils/regex';
 
 @Pipe({ name: 'highlight' })
 export class HighlightPipe implements PipeTransform {
-  transform(text: string, search: string): string {
-    return applyHighlight(text, search);
-  }
-}
-
-function applyHighlight(text: string, search: string): string {
-  if (!text || !search || search.length === 0) {
-    return text;
-  } else {
-    return text.replace(createSearchRegex(search), '<span class="highlight">$1</span>');
+  transform(text: string, highlightRegexp: RegExp | undefined): string {
+    if (!text || !highlightRegexp) {
+      return text;
+    }
+    return text.replace(highlightRegexp, '<span class="highlight">$&</span>');
   }
 }
