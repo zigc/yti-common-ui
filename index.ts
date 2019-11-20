@@ -30,6 +30,7 @@ import { IconComponent } from "./components/icon.component";
 import { ClipboardComponent } from './components/clipboard';
 import { ClipboardModule } from 'ngx-clipboard';
 import { ExpandableTextComponent } from './components/expandable-text.component';
+import { AlertModalComponent, AlertModalService } from './components/alert-modal.component';
 
 declare var require: any;
 
@@ -62,7 +63,8 @@ const components = [
   InformationSymbolComponent,
   StatusComponent,
   IconComponent,
-  ClipboardComponent
+  ClipboardComponent,
+  AlertModalComponent
 ];
 
 @NgModule({
@@ -72,7 +74,8 @@ const components = [
     ErrorModalComponent,
     ConfirmationModalComponent,
     LoginModalComponent,
-    NotificationWindowComponent
+    NotificationWindowComponent,
+    AlertModalComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +90,7 @@ const components = [
     ErrorModalService,
     LoginModalService,
     ConfirmationModalService,
-    ConfirmationModalService,
+    AlertModalService,
     UserService
   ]
 })
