@@ -1,4 +1,3 @@
-
 export function matches(text: string, search: string) {
 
   const normalizedText = (text || '').toLowerCase();
@@ -11,7 +10,7 @@ function isNotWordCharacter(s: string): boolean {
   return !!s.match(/[\s,\."]+/);
 }
 
-function rangeOrNull(s: string, start: number|null, end: number): { start: number, end: number }|null {
+function rangeOrNull(s: string, start: number | null, end: number): { start: number, end: number } | null {
 
   if (start === null) {
     return null;
@@ -24,9 +23,9 @@ function rangeOrNull(s: string, start: number|null, end: number): { start: numbe
   }
 }
 
-export function wordAtOffset(s: string, offset: number): { start: number, end: number }|null {
+export function wordAtOffset(s: string, offset: number): { start: number, end: number } | null {
 
-  let startOfWord: number|null = null;
+  let startOfWord: number | null = null;
 
   for (let i = 0; i < s.length; i++) {
 
@@ -46,4 +45,16 @@ export function wordAtOffset(s: string, offset: number): { start: number, end: n
   }
 
   return rangeOrNull(s, startOfWord, s.length);
+}
+
+const htmlEscapeMap: { [key: string]: string } = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#039;'
+};
+
+export function escapeHtml(text: string) {
+  return text.replace(/[&<>"']/g, function (m) { return htmlEscapeMap[m]; });
 }
