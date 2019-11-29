@@ -45,20 +45,20 @@ export class ErrorModalService {
     <div class="modal-header modal-header-danger">
       <h4 class="modal-title">
         <a><i id="close_error_modal_link" class="fa fa-times" (click)="close()"></i></a>
-        <span>
+        <span class="text-content-wrap">
           <i class="fa fa-exclamation-circle"></i>
-          {{title | translate}}
+          {{ title | translate }}
         </span>
       </h4>
     </div>
     <div class="modal-body">
       <div class="row">
         <div class="col-md-12">
-          <p translate [translateParams]="bodyParams">{{body}}</p>
+          <p translate [translateParams]="bodyParams" class="text-content-wrap">{{body}}</p>
           <pre *ngIf="error">{{error | json}}</pre>
         </div>
-        <div class="col-md-12" *ngIf="nonTranslatableMessage">
-          <p>{{nonTranslatableMessage }}</p>
+        <div class="col-md-12 text-content-wrap" *ngIf="nonTranslatableMessage">
+          <p>{{ nonTranslatableMessage }}</p>
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@ export class ErrorModalComponent {
   @Input() title: string;
   @Input() body: string;
   @Input() bodyParams?: {};
-  @Input() nonTranslatableMessage: string|undefined;
+  @Input() nonTranslatableMessage: string | undefined;
   @Input() error?: any;
 
   constructor(private modal: NgbActiveModal) {
