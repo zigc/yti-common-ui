@@ -14,6 +14,6 @@ export const restrictedStatuses = ['VALID', 'SUPERSEDED', 'RETIRED', 'INVALID'] 
 export const regularStatuses = ['DRAFT', 'SUGGESTED', 'VALID', 'SUPERSEDED', 'RETIRED', 'INVALID'] as Status[];
 export const creationTimeAllowedStatuses = ['DRAFT', 'INCOMPLETE'] as Status[];
 
-export function changeToRestrictedStatus(fromStatus: Status, toStatus: Status): Boolean {
+export function changeToRestrictedStatus(fromStatus: Status, toStatus: Status): boolean {
   return !contains(restrictedStatuses, fromStatus) && contains(restrictedStatuses, toStatus);
 }
