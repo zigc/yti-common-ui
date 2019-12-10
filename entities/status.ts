@@ -1,3 +1,5 @@
+import { contains } from "../utils/array";
+
 export type Status = 'INCOMPLETE'
   | 'SUPERSEDED'
   | 'RETIRED'
@@ -11,3 +13,7 @@ export const selectableStatuses = ['INCOMPLETE', 'DRAFT', 'VALID', 'SUPERSEDED',
 export const restrictedStatuses = ['VALID', 'SUPERSEDED', 'RETIRED', 'INVALID'] as Status[];
 export const regularStatuses = ['DRAFT', 'SUGGESTED', 'VALID', 'SUPERSEDED', 'RETIRED', 'INVALID'] as Status[];
 export const creationTimeAllowedStatuses = ['DRAFT', 'INCOMPLETE'] as Status[];
+
+export function changeToRestrictedStatus(fromStatus: Status, toStatus: Status): Boolean {
+  return !contains(restrictedStatuses, fromStatus) && contains(restrictedStatuses, toStatus);
+}
