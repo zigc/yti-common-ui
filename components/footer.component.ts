@@ -16,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
 
       <div class="row">
         <div class="col-md-4">
-          <p translate>This service is developed and maintained by Population Registry Center of Finland</p>
+          <p translate>This service is developed and maintained by Digital and Population Data Services Agency</p>
         </div>
 
         <div class="col-md-4">
