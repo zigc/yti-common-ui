@@ -4,6 +4,9 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "{{title}}"
+msgstr ""
+
 msgid "Copy value to clipboard"
 msgstr ""
 
@@ -11,9 +14,6 @@ msgid "Copied to clipboard"
 msgstr ""
 
 msgid "value"
-msgstr ""
-
-msgid "{{title}}"
 msgstr ""
 
 msgid "{{paragraph }}"
@@ -32,8 +32,8 @@ msgid "Close"
 msgstr ""
 
 msgid ""
-"This service is developed and maintained by Population Registry Center of "
-"Finland"
+"This service is developed and maintained by Digital and Population Data "
+"Services Agency"
 msgstr ""
 
 msgid "Information about the service"
@@ -49,6 +49,9 @@ msgid "Feedback"
 msgstr ""
 
 msgid "Sourcecode is licensed under EUPL-1.2 license."
+msgstr ""
+
+msgid "Content has been licensed with CC by 4.0 license."
 msgstr ""
 
 msgid "Contact"
@@ -72,10 +75,10 @@ msgstr ""
 msgid "MENU"
 msgstr ""
 
-msgid "INVALID"
+msgid "INCOMPLETE"
 msgstr ""
 
-msgid "INCOMPLETE"
+msgid "DRAFT"
 msgstr ""
 
 msgid "SUGGESTED"
@@ -90,7 +93,7 @@ msgstr ""
 msgid "RETIRED"
 msgstr ""
 
-msgid "DRAFT"
+msgid "INVALID"
 msgstr ""
 
 msgid "Edit in progress"
@@ -110,7 +113,4 @@ msgid ""
 msgstr ""
 
 msgid "Required"
-msgstr ""
-
-msgid "Content has been licensed with CC by 4.0 license."
 msgstr ""
