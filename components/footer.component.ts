@@ -71,7 +71,7 @@ export class FooterComponent {
 
   get feedbackLink() {
     const subject = this.translateService.instant('Contact') + ':%20' + this.title;
-    return 'mailto:yhteentoimivuus@vrk.fi?subject=' + subject;
+    return 'mailto:yhteentoimivuus@dvv.fi?subject=' + subject;
   }
 
   get descriptionOfFileLink() {

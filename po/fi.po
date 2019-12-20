@@ -43,7 +43,7 @@ msgstr "Sulje"
 msgid ""
 "This service is developed and maintained by Population Registry Center of "
 "Finland"
-msgstr "Verkkopalvelun kehittämisestä vastaa Väestörekisterikeskus"
+msgstr "Verkkopalvelun kehittämisestä vastaa Digi- ja väestötietovirasto"
 
 msgid "Information about the service"
 msgstr "Tietoa palvelusta"
