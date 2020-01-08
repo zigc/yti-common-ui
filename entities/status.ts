@@ -14,6 +14,36 @@ export const restrictedStatuses = ['VALID', 'SUPERSEDED', 'RETIRED', 'INVALID'] 
 export const regularStatuses = ['DRAFT', 'SUGGESTED', 'VALID', 'SUPERSEDED', 'RETIRED', 'INVALID'] as Status[];
 export const creationTimeAllowedStatuses = ['DRAFT', 'INCOMPLETE'] as Status[];
 
+export function allowedTargetStatuses(fromStatus: Status, includeFrom: boolean = true): Status[] {
+
+  const allowedTargetStatusesFrom_INCOMPLETE = ['DRAFT'] as Status[];
+  const allowedTargetStatusesFrom_DRAFT = ['INCOMPLETE', 'VALID'] as Status[];
+  const allowedTargetStatusesFrom_VALID = ['RETIRED', 'INVALID'] as Status[];
+  const allowedTargetStatusesFrom_RETIRED = ['VALID', 'INVALID'] as Status[];
+  const allowedTargetStatusesFrom_INVALID = ['VALID', 'RETIRED'] as Status[];
+
+  const includeFromStatusIfNeeded = (statuses: Status[]) => {
+    if (includeFrom) {
+      statuses.unshift(fromStatus);
+    }
+    return statuses;
+  };
+
+  if (fromStatus === 'INCOMPLETE') {
+    return includeFromStatusIfNeeded(allowedTargetStatusesFrom_INCOMPLETE);
+  } else if (fromStatus === 'DRAFT') {
+    return includeFromStatusIfNeeded(allowedTargetStatusesFrom_DRAFT);
+  } else if (fromStatus === 'VALID') {
+    return includeFromStatusIfNeeded(allowedTargetStatusesFrom_VALID);
+  } else if (fromStatus === 'RETIRED') {
+    return includeFromStatusIfNeeded(allowedTargetStatusesFrom_RETIRED);
+  } else if (fromStatus === 'INVALID') {
+    return includeFromStatusIfNeeded(allowedTargetStatusesFrom_INVALID);
+  } else {
+    return selectableStatuses; // should never come here
+  }
+}
+
 export function changeToRestrictedStatus(fromStatus: Status, toStatus: Status): boolean {
   return !contains(restrictedStatuses, fromStatus) && contains(restrictedStatuses, toStatus);
 }
