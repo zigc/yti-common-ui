@@ -18,6 +18,7 @@ declare const window: Window;
 
 export class User {
 
+  id: string;
   email: string;
   firstName: string;
   lastName: string;
@@ -30,6 +31,7 @@ export class User {
   containerUri: string;
 
   constructor(json: any) {
+    this.id = json.id;
     this.email = json.email;
     this.firstName = json.firstName;
     this.lastName = json.lastName;
@@ -76,6 +78,7 @@ export class User {
 }
 
 const anonymousUser = new User({
+  id: undefined,
   email: '',
   firstName: '',
   lastName: '',
