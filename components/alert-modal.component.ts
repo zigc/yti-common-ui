@@ -47,6 +47,7 @@ export class AlertModalService {
     <div class="modal-body">
       <app-ajax-loading-indicator *ngIf="message === undefined"></app-ajax-loading-indicator>
       <span *ngIf="message !== undefined">{{message}}</span>
+      <a id="alert_modal_link" *ngIf="link" [href]="link" target="_blank">{{linkTitleText}}</a>
     </div>
     <div class="modal-footer" *ngIf="showOkButton && enableClosingActions">
       <button id="confirm_alert_modal_button" type="button" class="btn btn-secondary-action confirm" (click)="cancel()">OK</button>
@@ -57,10 +58,16 @@ export class AlertModalComponent {
 
   @Input() title: string;
   @Input() message: string;
+  @Input() link: string;
+  @Input() linkTitle: string;
   @Input() showOkButton = false;
   @Input() enableClosingActions = true;
 
   constructor(private modal: NgbActiveModal) {
+  }
+
+  get linkTitleText () {
+    return this.linkTitle ? this.linkTitle : this.link;
   }
 
   cancel() {
