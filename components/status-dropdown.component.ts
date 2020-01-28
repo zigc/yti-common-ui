@@ -1,7 +1,7 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Placement as NgbPlacement } from '@ng-bootstrap/ng-bootstrap';
-import {Status, selectableStatuses, restrictedStatuses, creationTimeAllowedStatuses} from '../entities/status';
+import {Status, selectableStatuses, restrictedStatuses, creationTimeAllowedStatuses, allowedTargetStatuses} from '../entities/status';
 
 export type Placement = NgbPlacement;
 
@@ -44,12 +44,6 @@ export class StatusDropdownComponent implements ControlValueAccessor {
   private propagateChange: (fn: any) => void = () => {};
   private propagateTouched: (fn: any) => void = () => {};
 
-  allowedTargetStatusesFrom_INCOMPLETE = ['INCOMPLETE', 'DRAFT'] as Status[];
-  allowedTargetStatusesFrom_DRAFT = ['DRAFT', 'INCOMPLETE', 'VALID'] as Status[];
-  allowedTargetStatusesFrom_VALID = ['VALID', 'RETIRED', 'INVALID'] as Status[];
-  allowedTargetStatusesFrom_RETIRED = ['RETIRED', 'VALID', 'INVALID'] as Status[];
-  allowedTargetStatusesFrom_INVALID = ['INVALID', 'VALID', 'RETIRED'] as Status[];
-
   get options(): Status[] {
 
     if (this.isSuperUser) {
@@ -61,19 +55,7 @@ export class StatusDropdownComponent implements ControlValueAccessor {
     if (this.restrict) {
       return restrictedStatuses;
     } else if (this.originalStatus) {
-      if (this.originalStatus === 'INCOMPLETE') {
-        return this.allowedTargetStatusesFrom_INCOMPLETE;
-      } else if (this.originalStatus === 'DRAFT') {
-        return this.allowedTargetStatusesFrom_DRAFT;
-      } else if (this.originalStatus === 'VALID') {
-        return this.allowedTargetStatusesFrom_VALID;
-      } else if (this.originalStatus === 'RETIRED') {
-        return this.allowedTargetStatusesFrom_RETIRED;
-      } else if (this.originalStatus === 'INVALID') {
-        return this.allowedTargetStatusesFrom_INVALID;
-      } else {
-        return selectableStatuses; // should never come here anymore
-      }
+      return allowedTargetStatuses(this.originalStatus);
     } else {
       return selectableStatuses;
     }

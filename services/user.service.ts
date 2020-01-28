@@ -18,6 +18,7 @@ declare const window: Window;
 
 export class User {
 
+  id: string;
   email: string;
   firstName: string;
   lastName: string;
@@ -26,8 +27,11 @@ export class User {
   rolesInOrganizations: Map<UUID, Set<Role>>;
   organizationsInRole: Map<Role, Set<UUID>>;
   hasToken: boolean;
+  tokenRole: string;
+  containerUri: string;
 
   constructor(json: any) {
+    this.id = json.id;
     this.email = json.email;
     this.firstName = json.firstName;
     this.lastName = json.lastName;
@@ -36,6 +40,12 @@ export class User {
     this.rolesInOrganizations = convertToMapSet<UUID, Role>(json.rolesInOrganizations);
     this.organizationsInRole = convertToMapSet<Role, UUID>(json.organizationsInRole);
     this.hasToken = json.tokenCreatedAt != null && json.tokenInvalidationAt != null;
+    if (json.containerUri != null) {
+      this.containerUri = json.containerUri;
+    }
+    if (json.tokenRole != null) {
+      this.tokenRole = json.tokenRole;
+    }
   }
 
   get name() {
@@ -68,13 +78,17 @@ export class User {
 }
 
 const anonymousUser = new User({
+  id: undefined,
   email: '',
   firstName: '',
   lastName: '',
   anonymous: true,
   superuser: false,
   rolesInOrganizations: {},
-  organizationsInRole: {}
+  organizationsInRole: {},
+  hasToken: false,
+  containerUri: undefined,
+  tokenRole: undefined
 });
 
 const oneMinuteInMs = 60 * 1000;
