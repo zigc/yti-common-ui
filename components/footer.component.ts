@@ -26,7 +26,7 @@ import { TranslateService } from '@ngx-translate/core';
               <a id="information_link" (click)="informationClick.emit()" translate>Information about the service</a>
             </li>
             <li>
-              <a id="description_of_file_link" [href]="descriptionOfFileLink" target="_blank" translate>Description of file</a>
+              <a id="description_of_file_link" [href]="descriptionOfFileLink" target="_blank" rel="noopener noreferrer" translate>Description of file</a>
             </li>
             <li *ngIf="showUserSupportLink()">
               <a id="user_support_link" href="/ohjeet" translate>User support</a>
@@ -40,10 +40,10 @@ import { TranslateService } from '@ngx-translate/core';
         <div class="col-md-4">
           <ul class="link-list">
             <li>
-              <a id="license_link" [href]="licenseLink" target="_blank" translate>Sourcecode is licensed under EUPL-1.2 license.</a>
+              <a id="license_link" [href]="licenseLink" target="_blank" rel="noopener noreferrer" translate>Sourcecode is licensed under EUPL-1.2 license.</a>
             </li>
             <li *ngIf="showLicenseIcon" class="">
-              <a id="licence_icon_text_link" [href]="licenseIconLink" target="_blank" translate>Content has been licensed with CC by 4.0 license.</a>
+              <a id="licence_icon_text_link" [href]="licenseIconLink" target="_blank" rel="noopener noreferrer" translate>Content has been licensed with CC by 4.0 license.</a>
             </li>
           </ul>
         </div>
