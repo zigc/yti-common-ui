@@ -47,7 +47,7 @@ export class AlertModalService {
     <div class="modal-body">
       <app-ajax-loading-indicator *ngIf="message === undefined"></app-ajax-loading-indicator>
       <span *ngIf="message !== undefined">{{message}}</span>
-      <a id="alert_modal_link" *ngIf="link" [href]="link" target="_blank">{{linkTitleText}}</a>
+      <a id="alert_modal_link" *ngIf="link" rel="noopener noreferrer" [href]="link" target="_blank">{{linkTitleText}}</a>
     </div>
     <div class="modal-footer" *ngIf="showOkButton && enableClosingActions">
       <button id="confirm_alert_modal_button" type="button" class="btn btn-secondary-action confirm" (click)="cancel()">OK</button>

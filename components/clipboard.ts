@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
   selector: 'app-clipboard',
   styleUrls: ['./clipboard.scss'],
   template: `
-      <a *ngIf="displayValue && showAsLink" target="_blank" href="{{displayValue}}">{{displayValue}}</a>
+      <a *ngIf="displayValue && showAsLink" target="_blank" rel="noopener noreferrer" href="{{displayValue}}">{{displayValue}}</a>
       <span *ngIf="displayValue && !showAsLink">{{displayValue}}</span>
       <i class="far fa-copy"
          #t="ngbTooltip"
@@ -41,7 +41,7 @@ export class ClipboardComponent {
    * Description of copied content used in a tooltip. If not given then displayValue is tried, and finally a generic "value" is used.
    */
   @Input() description?: string;
-  
+
   constructor(private clipboardService: ClipboardService,
               private translateService: TranslateService) {
   }

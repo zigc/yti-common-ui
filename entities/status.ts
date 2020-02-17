@@ -18,9 +18,10 @@ export function allowedTargetStatuses(fromStatus: Status, includeFrom: boolean =
 
   const allowedTargetStatusesFrom_INCOMPLETE = ['DRAFT'] as Status[];
   const allowedTargetStatusesFrom_DRAFT = ['INCOMPLETE', 'VALID'] as Status[];
-  const allowedTargetStatusesFrom_VALID = ['RETIRED', 'INVALID'] as Status[];
-  const allowedTargetStatusesFrom_RETIRED = ['VALID', 'INVALID'] as Status[];
-  const allowedTargetStatusesFrom_INVALID = ['VALID', 'RETIRED'] as Status[];
+  const allowedTargetStatusesFrom_VALID = ['SUPERSEDED', 'RETIRED', 'INVALID'] as Status[];
+  const allowedTargetStatusesFrom_SUPERSEDED = ['VALID', 'RETIRED', 'INVALID'] as Status[];
+  const allowedTargetStatusesFrom_RETIRED = ['VALID', 'SUPERSEDED', 'INVALID'] as Status[];
+  const allowedTargetStatusesFrom_INVALID = ['VALID', 'SUPERSEDED', 'RETIRED'] as Status[];
 
   const includeFromStatusIfNeeded = (statuses: Status[]) => {
     if (includeFrom) {
@@ -35,6 +36,8 @@ export function allowedTargetStatuses(fromStatus: Status, includeFrom: boolean =
     return includeFromStatusIfNeeded(allowedTargetStatusesFrom_DRAFT);
   } else if (fromStatus === 'VALID') {
     return includeFromStatusIfNeeded(allowedTargetStatusesFrom_VALID);
+  } else if (fromStatus === 'SUPERSEDED') {
+    return includeFromStatusIfNeeded(allowedTargetStatusesFrom_SUPERSEDED);
   } else if (fromStatus === 'RETIRED') {
     return includeFromStatusIfNeeded(allowedTargetStatusesFrom_RETIRED);
   } else if (fromStatus === 'INVALID') {
