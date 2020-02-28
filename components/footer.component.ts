@@ -75,7 +75,7 @@ export class FooterComponent {
   }
 
   get descriptionOfFileLink() {
-    return 'https://yhteentoimiva.suomi.fi/tietosuojaseloste.pdf';
+    return 'https://wiki.dvv.fi/display/YTIJD/Tietosuojaseloste';
   }
 
   showUserSupportLink() {
