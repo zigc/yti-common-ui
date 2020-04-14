@@ -15,7 +15,7 @@ msgid "{{title}}"
 msgstr ""
 
 msgid "Copy value to clipboard"
-msgstr "Kopirajte vrednost v odložišče"
+msgstr "Kopirajte {{value}} v odložišče"
 
 msgid "Copied to clipboard"
 msgstr "Kopirano v odložišče"
@@ -81,7 +81,7 @@ msgid "MENU"
 msgstr "MENU"
 
 msgid "INCOMPLETE"
-msgstr "NEZAKONITO"
+msgstr "NEKONČANO"
 
 msgid "DRAFT"
 msgstr "OSNUTEK"
@@ -93,13 +93,13 @@ msgid "VALID"
 msgstr "VELJAVNO"
 
 msgid "SUPERSEDED"
-msgstr "NADZORNO"
+msgstr "PREDELANO"
 
 msgid "RETIRED"
-msgstr "POVEZANO"
+msgstr "ODVZETO"
 
 msgid "INVALID"
-msgstr "INVALID"
+msgstr "NEPOPOLNO"
 
 msgid "Edit in progress"
 msgstr "Urejanje poteka"
