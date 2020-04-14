@@ -1,0 +1,117 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"Project-Id-Version: iow-common\n"
+"Language: sl\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+
+msgid "{{title}}"
+msgstr ""
+
+msgid "Copy value to clipboard"
+msgstr "Kopirajte vrednost v odložišče"
+
+msgid "Copied to clipboard"
+msgstr "Kopirano v odložišče"
+
+msgid "value"
+msgstr "vrednost"
+
+msgid "{{paragraph }}"
+msgstr ""
+
+msgid "Yes"
+msgstr "Da"
+
+msgid "Cancel"
+msgstr "Prekliči"
+
+msgid "{{body}}"
+msgstr ""
+
+msgid "Close"
+msgstr "Zapri"
+
+msgid "This service is developed and maintained by Digital and Population Data Services Agency"
+msgstr "To storitev razvija in vzdržuje Agencija za digitalne storitve in podatke o prebivalstvu"
+
+msgid "Information about the service"
+msgstr "Informacije o storitvi"
+
+msgid "Description of file"
+msgstr "Opis datoteke"
+
+msgid "User support"
+msgstr "Uporabniška podpora"
+
+msgid "Feedback"
+msgstr "Povratne informacije"
+
+msgid "Sourcecode is licensed under EUPL-1.2 license."
+msgstr "Izvorna koda je licencirana pod licenco EUPL-1.2."
+
+msgid "Content has been licensed with CC by 4.0 license."
+msgstr "Vsebina je licenčna s CC z licenco 4.0."
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Login"
+msgstr "Vpiši se"
+
+msgid "eDuuni information"
+msgstr ""
+
+msgid "Login information"
+msgstr "Podatki za prijavo"
+
+msgid "Log In"
+msgstr "Vpiši se"
+
+msgid "Register"
+msgstr "Registrirajte se"
+
+msgid "MENU"
+msgstr "MENU"
+
+msgid "INCOMPLETE"
+msgstr "NEZAKONITO"
+
+msgid "DRAFT"
+msgstr "OSNUTEK"
+
+msgid "SUGGESTED"
+msgstr "PREDLAGANO"
+
+msgid "VALID"
+msgstr "VELJAVNO"
+
+msgid "SUPERSEDED"
+msgstr "NADZORNO"
+
+msgid "RETIRED"
+msgstr "POVEZANO"
+
+msgid "INVALID"
+msgstr "INVALID"
+
+msgid "Edit in progress"
+msgstr "Urejanje poteka"
+
+msgid "Are you sure that you want to continue? By continuing unsaved changes will be lost."
+msgstr "Ali ste prepričani, da želite nadaljevati? Če nadaljujete neshranjene spremembe, bodo izgubljene."
+
+msgid "Modals are open"
+msgstr "Načini so odprti"
+
+msgid "Are you sure that you want to continue? By continuing all modals will be closed."
+msgstr "Ali ste prepričani, da želite nadaljevati? Z nadaljevanjem bodo vsi načini zaprti."
+
+msgid "Required"
+msgstr "Obvezno"
